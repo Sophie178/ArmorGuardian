@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using Example_Kursach.Models;
 
 namespace Example_Kursach
 {
@@ -17,6 +18,14 @@ namespace Example_Kursach
 
         string query = "select * from Transport";
 
+        string table = "Transport";
+        string _tID = "TransportID";
+        string _model = "Model";
+        string _seats = "Seats";
+        string _armor = "ArmorPlating";
+        string _cStyle = "CarBodyStyle";
+        string _year = "ManufactureYear";
+        string _cit = "CIT";
 
 
         public TranspForm()
@@ -117,7 +126,161 @@ namespace Example_Kursach
             newStyle.Font = new Font("Perpetua Titling MT", 20, FontStyle.Regular);
             TransportGrid.CurrentRow.DefaultCellStyle.Font = newStyle.Font;
         }
+        private TransportClass ValidateTransport()
+        {
+            string model = TransportGrid.CurrentRow.Cells[_model].Value.ToString();
+            int seats = Convert.ToInt32(TransportGrid.CurrentRow.Cells[_seats].Value.ToString());
+            string carStyle = TransportGrid.CurrentRow.Cells[_cStyle].Value.ToString();
+            int manYear;
+            int armor;
+            int cit;
 
 
+            if (Convert.ToInt32(TransportGrid.CurrentRow.Cells[_year].Value.ToString()) >= 1980 && model != null && carStyle != null)
+            {
+
+                if (TransportGrid.CurrentRow.Cells[_armor].Value.ToString() == "")
+                {
+                    armor = 0;
+                }
+                else
+                {
+                    armor = 1;
+                }
+
+                if (TransportGrid.CurrentRow.Cells[_cit].Value.ToString() == "")
+                {
+                    cit = 0;
+                }
+                else
+                {
+                    cit = 1;
+                }
+
+                manYear = Convert.ToInt32(TransportGrid.CurrentRow.Cells[_year].Value.ToString());
+
+                TransportClass transport = new TransportClass( model, seats, armor, carStyle, manYear, cit);
+                return transport;
+            }
+            else
+            {
+                MessageBox.Show("Invalid Format");
+                return null;
+            }
+
+        }
+
+        private void Updating(string table, TransportClass transport)
+        {
+            if (MessageBox.Show("Edit this record?", $"{table} table", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+
+                connection.Open();
+
+
+                string query2 = $"update {table} set  " +
+                    $" {_armor} = {transport.ArmorPlating}, {_seats} = {transport.Seats}, {_year} = {transport.ManufactureYear}, {_cStyle} = '{transport.CarBodyStyle}'," +
+                    $" {_cit}  = {transport.CIT} " +
+                    $"where  {_model} = '{transport.Model}' ";
+                SqlCommand sqlCommand = new SqlCommand(query2, connection);
+                try
+                {
+                    sqlCommand.ExecuteNonQuery();
+                    SqlCommand cmd = new SqlCommand(query, connection);
+                    cmd.ExecuteNonQuery();
+                    DataTable tariffTable = new DataTable();
+                    SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(cmd);
+                    sqlDataAdapter.Fill(tariffTable);
+
+                    TransportGrid.DataSource = tariffTable;
+                    connection.Close();
+                }
+                catch
+                {
+                    MessageBox.Show(" Error.");
+                    connection.Close();
+                }
+
+            }
+            else
+            {
+                connection.Close();
+            }
+        }
+
+        private void Adding(string table, TransportClass transport)
+        {
+            if (MessageBox.Show("Add this record?", $"{table} table", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+
+                connection.Open();
+
+
+                string query2 = $"insert into {table} values ( " +
+                     $@" '{transport.Model}', " +
+                    $" {transport.Seats},  " +
+                    $" {transport.ArmorPlating}, '{transport.CarBodyStyle}', {transport.ManufactureYear}, {transport.CIT})";
+                SqlCommand sqlCommand = new SqlCommand(query2, connection);
+                try
+                {
+                    sqlCommand.ExecuteNonQuery();
+                    SqlCommand cmd = new SqlCommand(query, connection);
+                    cmd.ExecuteNonQuery();
+                    DataTable tariffTable = new DataTable();
+                    SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(cmd);
+                    sqlDataAdapter.Fill(tariffTable);
+
+                    TransportGrid.DataSource = tariffTable;
+                    connection.Close();
+                }
+                catch
+                {
+                    MessageBox.Show(" Error.");
+                    connection.Close();
+                }
+
+            }
+            else
+            {
+                connection.Close();
+            }
+        }
+
+        private void UpdateButton_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (ValidateTransport() != null && ValidateTransport().Model != "" && ValidateTransport().CarBodyStyle != "")
+                    Updating(table, ValidateTransport());
+                else { MessageBox.Show("Empty cells are not allowed"); }
+            }
+            catch
+            {
+                MessageBox.Show("Invalid format");
+            }
+        }
+        private void AddButton_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (ValidateTransport() != null && ValidateTransport().Model != "" && ValidateTransport().CarBodyStyle != "")
+                    Adding(table, ValidateTransport());
+                else { MessageBox.Show("Empty cells are not allowed"); }
+            }
+            catch
+            {
+                MessageBox.Show("Invalid format");
+            }
+        }
+
+        private void AddButton_MouseEnter(object sender, EventArgs e)
+        {
+            AddButton.ForeColor = Color.FromArgb(204, 32, 20);
+        }
+
+        private void AddButton_MouseLeave(object sender, EventArgs e)
+        {
+            AddButton.ForeColor = Color.FromArgb(234, 211, 144);
+        }
     }
 }

@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.Gap = new System.Windows.Forms.Panel();
             this.TariffsLabel = new System.Windows.Forms.Label();
             this.NameLabel = new System.Windows.Forms.Label();
@@ -38,6 +38,7 @@
             this.AddButton = new System.Windows.Forms.Button();
             this.TransportGrid = new System.Windows.Forms.DataGridView();
             this.UpdateButton = new System.Windows.Forms.Button();
+            this.TransportID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Gap.SuspendLayout();
             this.LoginPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.TransportGrid)).BeginInit();
@@ -146,20 +147,25 @@
             this.AddButton.TabIndex = 6;
             this.AddButton.Text = "Add record";
             this.AddButton.UseVisualStyleBackColor = false;
+            this.AddButton.Click += new System.EventHandler(this.AddButton_Click);
+            this.AddButton.MouseEnter += new System.EventHandler(this.AddButton_MouseEnter);
+            this.AddButton.MouseLeave += new System.EventHandler(this.AddButton_MouseLeave);
             // 
             // TransportGrid
             // 
             this.TransportGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.TransportGrid.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.TransportGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Perpetua Titling MT", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.TransportGrid.DefaultCellStyle = dataGridViewCellStyle1;
+            this.TransportGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.TransportID});
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Perpetua Titling MT", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.TransportGrid.DefaultCellStyle = dataGridViewCellStyle3;
             this.TransportGrid.Location = new System.Drawing.Point(70, 89);
             this.TransportGrid.Name = "TransportGrid";
             this.TransportGrid.RowHeadersWidth = 82;
@@ -185,8 +191,17 @@
             this.UpdateButton.TabIndex = 14;
             this.UpdateButton.Text = "update record";
             this.UpdateButton.UseVisualStyleBackColor = false;
+            this.UpdateButton.Click += new System.EventHandler(this.UpdateButton_Click);
             this.UpdateButton.MouseEnter += new System.EventHandler(this.UpdateButton_MouseEnter);
             this.UpdateButton.MouseLeave += new System.EventHandler(this.UpdateButton_MouseLeave);
+            // 
+            // TransportID
+            // 
+            this.TransportID.DataPropertyName = "TransportID";
+            this.TransportID.HeaderText = "TransportID";
+            this.TransportID.Name = "TransportID";
+            this.TransportID.ReadOnly = true;
+            this.TransportID.Width = 269;
             // 
             // TranspForm
             // 
@@ -216,5 +231,6 @@
         private System.Windows.Forms.DataGridView TransportGrid;
         private System.Windows.Forms.Button DeleteButton;
         private System.Windows.Forms.Button UpdateButton;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TransportID;
     }
 }
