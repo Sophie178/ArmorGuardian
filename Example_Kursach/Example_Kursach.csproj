@@ -115,9 +115,12 @@
       <DependentUpon>EmpForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Models\BGService.cs" />
+    <Compile Include="Models\EquipClass.cs" />
     <Compile Include="Models\FacilityClass.cs" />
     <Compile Include="Models\MassEventsClass.cs" />
     <Compile Include="Models\TechServicesClass.cs" />
+    <Compile Include="Models\TransportClass.cs" />
+    <Compile Include="Models\WeaponClass.cs" />
     <Compile Include="Staff supply\Eq_WeaponForm.cs">
       <SubType>Form</SubType>
     </Compile>
