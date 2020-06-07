@@ -37,6 +37,7 @@
             this.BackButton = new System.Windows.Forms.Button();
             this.AddButton = new System.Windows.Forms.Button();
             this.TransportGrid = new System.Windows.Forms.DataGridView();
+            this.UpdateButton = new System.Windows.Forms.Button();
             this.Gap.SuspendLayout();
             this.LoginPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.TransportGrid)).BeginInit();
@@ -82,6 +83,7 @@
             // 
             // LoginPanel
             // 
+            this.LoginPanel.Controls.Add(this.UpdateButton);
             this.LoginPanel.Controls.Add(this.DeleteButton);
             this.LoginPanel.Controls.Add(this.BackButton);
             this.LoginPanel.Controls.Add(this.AddButton);
@@ -138,9 +140,9 @@
             this.AddButton.Font = new System.Drawing.Font("Perpetua Titling MT", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.AddButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(211)))), ((int)(((byte)(144)))));
             this.AddButton.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.AddButton.Location = new System.Drawing.Point(1536, 756);
+            this.AddButton.Location = new System.Drawing.Point(1525, 756);
             this.AddButton.Name = "AddButton";
-            this.AddButton.Size = new System.Drawing.Size(265, 53);
+            this.AddButton.Size = new System.Drawing.Size(276, 53);
             this.AddButton.TabIndex = 6;
             this.AddButton.Text = "Add record";
             this.AddButton.UseVisualStyleBackColor = false;
@@ -152,7 +154,7 @@
             this.TransportGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Perpetua Titling MT", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Perpetua Titling MT", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.GradientActiveCaption;
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
@@ -160,12 +162,31 @@
             this.TransportGrid.DefaultCellStyle = dataGridViewCellStyle1;
             this.TransportGrid.Location = new System.Drawing.Point(70, 89);
             this.TransportGrid.Name = "TransportGrid";
-            this.TransportGrid.ReadOnly = true;
             this.TransportGrid.RowHeadersWidth = 82;
             this.TransportGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.TransportGrid.Size = new System.Drawing.Size(1731, 497);
             this.TransportGrid.TabIndex = 0;
+            this.TransportGrid.CellBeginEdit += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.TransportGrid_CellBeginEdit);
+            this.TransportGrid.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.TransportGrid_CellEndEdit);
             this.TransportGrid.UserDeletingRow += new System.Windows.Forms.DataGridViewRowCancelEventHandler(this.TransportGrid_UserDeletingRow);
+            // 
+            // UpdateButton
+            // 
+            this.UpdateButton.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.UpdateButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.UpdateButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Black;
+            this.UpdateButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.UpdateButton.Font = new System.Drawing.Font("Perpetua Titling MT", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.UpdateButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(211)))), ((int)(((byte)(144)))));
+            this.UpdateButton.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.UpdateButton.Location = new System.Drawing.Point(1525, 678);
+            this.UpdateButton.Name = "UpdateButton";
+            this.UpdateButton.Size = new System.Drawing.Size(276, 53);
+            this.UpdateButton.TabIndex = 14;
+            this.UpdateButton.Text = "update record";
+            this.UpdateButton.UseVisualStyleBackColor = false;
+            this.UpdateButton.MouseEnter += new System.EventHandler(this.UpdateButton_MouseEnter);
+            this.UpdateButton.MouseLeave += new System.EventHandler(this.UpdateButton_MouseLeave);
             // 
             // TranspForm
             // 
@@ -194,5 +215,6 @@
         private System.Windows.Forms.Button AddButton;
         private System.Windows.Forms.DataGridView TransportGrid;
         private System.Windows.Forms.Button DeleteButton;
+        private System.Windows.Forms.Button UpdateButton;
     }
 }

@@ -92,5 +92,32 @@ namespace Example_Kursach
 
             Deleting(table, id, TransportGrid, e);
         }
+
+        private void UpdateButton_MouseEnter(object sender, EventArgs e)
+        {
+            UpdateButton.ForeColor = Color.FromArgb(204, 32, 20);
+        }
+
+        private void UpdateButton_MouseLeave(object sender, EventArgs e)
+        {
+            UpdateButton.ForeColor = Color.FromArgb(234, 211, 144);
+        }
+
+        private void TransportGrid_CellBeginEdit(object sender, DataGridViewCellCancelEventArgs e)
+        {
+            DataGridViewCellStyle newStyle = new DataGridViewCellStyle();
+            newStyle.Font = new Font("Times New Roman", 20, FontStyle.Regular);
+            TransportGrid.CurrentRow.DefaultCellStyle.Font = newStyle.Font;
+
+        }
+
+        private void TransportGrid_CellEndEdit(object sender, DataGridViewCellEventArgs e)
+        {
+            DataGridViewCellStyle newStyle = new DataGridViewCellStyle();
+            newStyle.Font = new Font("Perpetua Titling MT", 20, FontStyle.Regular);
+            TransportGrid.CurrentRow.DefaultCellStyle.Font = newStyle.Font;
+        }
+
+
     }
 }

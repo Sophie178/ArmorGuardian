@@ -30,6 +30,7 @@
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.Gap = new System.Windows.Forms.Panel();
             this.TariffsLabel = new System.Windows.Forms.Label();
             this.NameLabel = new System.Windows.Forms.Label();
@@ -39,6 +40,9 @@
             this.BackButton = new System.Windows.Forms.Button();
             this.AddButton = new System.Windows.Forms.Button();
             this.EqGrid = new System.Windows.Forms.DataGridView();
+            this.UpdateButton = new System.Windows.Forms.Button();
+            this.UpdateWeapButton = new System.Windows.Forms.Button();
+            this.AddWeaponButton = new System.Windows.Forms.Button();
             this.Gap.SuspendLayout();
             this.LoginPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.WeaponGrid)).BeginInit();
@@ -86,6 +90,9 @@
             // 
             // LoginPanel
             // 
+            this.LoginPanel.Controls.Add(this.AddWeaponButton);
+            this.LoginPanel.Controls.Add(this.UpdateWeapButton);
+            this.LoginPanel.Controls.Add(this.UpdateButton);
             this.LoginPanel.Controls.Add(this.DeleteButton);
             this.LoginPanel.Controls.Add(this.WeaponGrid);
             this.LoginPanel.Controls.Add(this.BackButton);
@@ -122,19 +129,20 @@
             this.WeaponGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Perpetua Titling MT", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Perpetua Titling MT", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.GradientActiveCaption;
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.WeaponGrid.DefaultCellStyle = dataGridViewCellStyle1;
-            this.WeaponGrid.Location = new System.Drawing.Point(346, 550);
+            this.WeaponGrid.Location = new System.Drawing.Point(64, 551);
             this.WeaponGrid.Name = "WeaponGrid";
-            this.WeaponGrid.ReadOnly = true;
             this.WeaponGrid.RowHeadersWidth = 82;
             this.WeaponGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.WeaponGrid.Size = new System.Drawing.Size(1297, 464);
             this.WeaponGrid.TabIndex = 9;
+            this.WeaponGrid.CellBeginEdit += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.WeaponGrid_CellBeginEdit);
+            this.WeaponGrid.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.WeaponGrid_CellEndEdit);
             this.WeaponGrid.UserDeletingRow += new System.Windows.Forms.DataGridViewRowCancelEventHandler(this.WeaponGrid_UserDeletingRow);
             // 
             // BackButton
@@ -165,12 +173,14 @@
             this.AddButton.Font = new System.Drawing.Font("Perpetua Titling MT", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.AddButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(211)))), ((int)(((byte)(144)))));
             this.AddButton.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.AddButton.Location = new System.Drawing.Point(1652, 1061);
+            this.AddButton.Location = new System.Drawing.Point(1659, 315);
             this.AddButton.Name = "AddButton";
-            this.AddButton.Size = new System.Drawing.Size(265, 53);
+            this.AddButton.Size = new System.Drawing.Size(265, 128);
             this.AddButton.TabIndex = 6;
-            this.AddButton.Text = "Add record";
+            this.AddButton.Text = "Add equipment record";
             this.AddButton.UseVisualStyleBackColor = false;
+            this.AddButton.MouseEnter += new System.EventHandler(this.AddButton_MouseEnter);
+            this.AddButton.MouseLeave += new System.EventHandler(this.AddButton_MouseLeave);
             // 
             // EqGrid
             // 
@@ -185,14 +195,77 @@
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.EqGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.EqGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.EqGrid.Location = new System.Drawing.Point(122, 46);
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Perpetua Titling MT", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.EqGrid.DefaultCellStyle = dataGridViewCellStyle3;
+            this.EqGrid.Location = new System.Drawing.Point(64, 34);
             this.EqGrid.Name = "EqGrid";
-            this.EqGrid.ReadOnly = true;
             this.EqGrid.RowHeadersWidth = 82;
             this.EqGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.EqGrid.Size = new System.Drawing.Size(1729, 466);
+            this.EqGrid.Size = new System.Drawing.Size(1566, 466);
             this.EqGrid.TabIndex = 0;
+            this.EqGrid.CellBeginEdit += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.EqGrid_CellBeginEdit);
+            this.EqGrid.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.EqGrid_CellEndEdit);
             this.EqGrid.UserDeletingRow += new System.Windows.Forms.DataGridViewRowCancelEventHandler(this.EqGrid_UserDeletingRow);
+            // 
+            // UpdateButton
+            // 
+            this.UpdateButton.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.UpdateButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.UpdateButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Black;
+            this.UpdateButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.UpdateButton.Font = new System.Drawing.Font("Perpetua Titling MT", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.UpdateButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(211)))), ((int)(((byte)(144)))));
+            this.UpdateButton.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.UpdateButton.Location = new System.Drawing.Point(1659, 71);
+            this.UpdateButton.Name = "UpdateButton";
+            this.UpdateButton.Size = new System.Drawing.Size(265, 114);
+            this.UpdateButton.TabIndex = 15;
+            this.UpdateButton.Text = "update equipment record";
+            this.UpdateButton.UseVisualStyleBackColor = false;
+            this.UpdateButton.MouseEnter += new System.EventHandler(this.UpdateButton_MouseEnter);
+            this.UpdateButton.MouseLeave += new System.EventHandler(this.UpdateButton_MouseLeave);
+            // 
+            // UpdateWeapButton
+            // 
+            this.UpdateWeapButton.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.UpdateWeapButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.UpdateWeapButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Black;
+            this.UpdateWeapButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.UpdateWeapButton.Font = new System.Drawing.Font("Perpetua Titling MT", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.UpdateWeapButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(211)))), ((int)(((byte)(144)))));
+            this.UpdateWeapButton.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.UpdateWeapButton.Location = new System.Drawing.Point(1445, 643);
+            this.UpdateWeapButton.Name = "UpdateWeapButton";
+            this.UpdateWeapButton.Size = new System.Drawing.Size(439, 53);
+            this.UpdateWeapButton.TabIndex = 16;
+            this.UpdateWeapButton.Text = "update weapon record";
+            this.UpdateWeapButton.UseVisualStyleBackColor = false;
+            this.UpdateWeapButton.MouseEnter += new System.EventHandler(this.UpdateWeapButton_MouseEnter);
+            this.UpdateWeapButton.MouseLeave += new System.EventHandler(this.UpdateWeapButton_MouseLeave);
+            // 
+            // AddWeaponButton
+            // 
+            this.AddWeaponButton.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.AddWeaponButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.AddWeaponButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Black;
+            this.AddWeaponButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.AddWeaponButton.Font = new System.Drawing.Font("Perpetua Titling MT", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.AddWeaponButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(211)))), ((int)(((byte)(144)))));
+            this.AddWeaponButton.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.AddWeaponButton.Location = new System.Drawing.Point(1445, 884);
+            this.AddWeaponButton.Name = "AddWeaponButton";
+            this.AddWeaponButton.Size = new System.Drawing.Size(439, 53);
+            this.AddWeaponButton.TabIndex = 17;
+            this.AddWeaponButton.Text = "Add weapon record";
+            this.AddWeaponButton.UseVisualStyleBackColor = false;
+            this.AddWeaponButton.MouseEnter += new System.EventHandler(this.AddWeaponButton_MouseEnter);
+            this.AddWeaponButton.MouseLeave += new System.EventHandler(this.AddWeaponButton_MouseLeave);
             // 
             // Eq_WeaponForm
             // 
@@ -224,5 +297,8 @@
         private System.Windows.Forms.DataGridView EqGrid;
         private System.Windows.Forms.DataGridView WeaponGrid;
         private System.Windows.Forms.Button DeleteButton;
+        private System.Windows.Forms.Button AddWeaponButton;
+        private System.Windows.Forms.Button UpdateWeapButton;
+        private System.Windows.Forms.Button UpdateButton;
     }
 }

@@ -111,5 +111,74 @@ namespace Example_Kursach
 
             Deleting(table, id, WeaponGrid, e);
         }
+
+        private void WeaponGrid_CellBeginEdit(object sender, DataGridViewCellCancelEventArgs e)
+        {
+            DataGridViewCellStyle newStyle = new DataGridViewCellStyle();
+            newStyle.Font = new Font("Times New Roman", 20, FontStyle.Regular);
+            WeaponGrid.CurrentRow.DefaultCellStyle.Font = newStyle.Font;
+        }
+
+        private void WeaponGrid_CellEndEdit(object sender, DataGridViewCellEventArgs e)
+        {
+            DataGridViewCellStyle newStyle = new DataGridViewCellStyle();
+            newStyle.Font = new Font("Perpetua Titling MT", 20, FontStyle.Regular);
+            WeaponGrid.CurrentRow.DefaultCellStyle.Font = newStyle.Font;
+        }
+
+        private void UpdateButton_MouseEnter(object sender, EventArgs e)
+        {
+            UpdateButton.ForeColor = Color.FromArgb(204, 32, 20);
+        }
+
+        private void UpdateButton_MouseLeave(object sender, EventArgs e)
+        {
+            UpdateButton.ForeColor = Color.FromArgb(234, 211, 144);
+        }
+
+        private void AddButton_MouseEnter(object sender, EventArgs e)
+        {
+            AddButton.ForeColor = Color.FromArgb(204, 32, 20);
+        }
+
+        private void AddButton_MouseLeave(object sender, EventArgs e)
+        {
+            AddButton.ForeColor = Color.FromArgb(234, 211, 144);
+        }
+
+        private void UpdateWeapButton_MouseEnter(object sender, EventArgs e)
+        {
+            UpdateWeapButton.ForeColor = Color.FromArgb(204, 32, 20);
+        }
+
+        private void UpdateWeapButton_MouseLeave(object sender, EventArgs e)
+        {
+            UpdateWeapButton.ForeColor = Color.FromArgb(234, 211, 144);
+        }
+
+        private void AddWeaponButton_MouseEnter(object sender, EventArgs e)
+        {
+            UpdateWeapButton.ForeColor = Color.FromArgb(204, 32, 20);
+        }
+
+        private void AddWeaponButton_MouseLeave(object sender, EventArgs e)
+        {
+            AddWeaponButton.ForeColor = Color.FromArgb(234, 211, 144);
+        }
+
+        private void EqGrid_CellEndEdit(object sender, DataGridViewCellEventArgs e)
+        {
+            DataGridViewCellStyle newStyle = new DataGridViewCellStyle();
+            newStyle.Font = new Font("Perpetua Titling MT", 20, FontStyle.Regular);
+            EqGrid.CurrentRow.DefaultCellStyle.Font = newStyle.Font;
+        }
+
+        private void EqGrid_CellBeginEdit(object sender, DataGridViewCellCancelEventArgs e)
+        {
+            DataGridViewCellStyle newStyle = new DataGridViewCellStyle();
+            newStyle.Font = new Font("Times New Roman", 20, FontStyle.Regular);
+            EqGrid.CurrentRow.DefaultCellStyle.Font = newStyle.Font;
+
+        }
     }
 }
