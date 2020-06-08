@@ -39,6 +39,11 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.JPCGrid = new System.Windows.Forms.DataGridView();
+            this.JPContractID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SWorkerID3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ClientName1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.GuardSurname1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.GuardName1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.BackButton = new System.Windows.Forms.Button();
             this.NPCGrid = new System.Windows.Forms.DataGridView();
             this.NPContractID = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -47,11 +52,6 @@
             this.ClientName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.GuardSurname = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.GuardName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.JPContractID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SWorkerID3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ClientName1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.GuardSurname1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.GuardName1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Gap.SuspendLayout();
             this.LoginPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.JPCGrid)).BeginInit();
@@ -207,6 +207,39 @@
             this.JPCGrid.TabIndex = 10;
             this.JPCGrid.UserDeletingRow += new System.Windows.Forms.DataGridViewRowCancelEventHandler(this.JPCGrid_UserDeletingRow);
             // 
+            // JPContractID
+            // 
+            this.JPContractID.DataPropertyName = "JPContractID";
+            this.JPContractID.HeaderText = "JPContract ID";
+            this.JPContractID.Name = "JPContractID";
+            // 
+            // SWorkerID3
+            // 
+            this.SWorkerID3.DataPropertyName = "SWorkerID";
+            this.SWorkerID3.HeaderText = "Guard ID";
+            this.SWorkerID3.Name = "SWorkerID3";
+            // 
+            // ClientName1
+            // 
+            this.ClientName1.DataPropertyName = "ClientName";
+            this.ClientName1.HeaderText = "Client_Name";
+            this.ClientName1.Name = "ClientName1";
+            this.ClientName1.ReadOnly = true;
+            // 
+            // GuardSurname1
+            // 
+            this.GuardSurname1.DataPropertyName = "Guard_Surname";
+            this.GuardSurname1.HeaderText = "Guard_Surname";
+            this.GuardSurname1.Name = "GuardSurname1";
+            this.GuardSurname1.ReadOnly = true;
+            // 
+            // GuardName1
+            // 
+            this.GuardName1.DataPropertyName = "Guard_Name";
+            this.GuardName1.HeaderText = "Guard_Name";
+            this.GuardName1.Name = "GuardName1";
+            this.GuardName1.ReadOnly = true;
+            // 
             // BackButton
             // 
             this.BackButton.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
@@ -246,7 +279,7 @@
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.NPCGrid.DefaultCellStyle = dataGridViewCellStyle2;
-            this.NPCGrid.Location = new System.Drawing.Point(97, 28);
+            this.NPCGrid.Location = new System.Drawing.Point(97, 31);
             this.NPCGrid.Name = "NPCGrid";
             this.NPCGrid.RowHeadersWidth = 82;
             this.NPCGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -293,39 +326,6 @@
             this.GuardName.HeaderText = "Guard_Name";
             this.GuardName.Name = "GuardName";
             this.GuardName.ReadOnly = true;
-            // 
-            // JPContractID
-            // 
-            this.JPContractID.DataPropertyName = "JPContractID";
-            this.JPContractID.HeaderText = "JPContract ID";
-            this.JPContractID.Name = "JPContractID";
-            // 
-            // SWorkerID3
-            // 
-            this.SWorkerID3.DataPropertyName = "SWorkerID";
-            this.SWorkerID3.HeaderText = "Guard ID";
-            this.SWorkerID3.Name = "SWorkerID3";
-            // 
-            // ClientName1
-            // 
-            this.ClientName1.DataPropertyName = "ClientName";
-            this.ClientName1.HeaderText = "Client_Name";
-            this.ClientName1.Name = "ClientName1";
-            this.ClientName1.ReadOnly = true;
-            // 
-            // GuardSurname1
-            // 
-            this.GuardSurname1.DataPropertyName = "Guard_Surname";
-            this.GuardSurname1.HeaderText = "Guard_Surname";
-            this.GuardSurname1.Name = "GuardSurname1";
-            this.GuardSurname1.ReadOnly = true;
-            // 
-            // GuardName1
-            // 
-            this.GuardName1.DataPropertyName = "Guard_Name";
-            this.GuardName1.HeaderText = "Guard_Name";
-            this.GuardName1.Name = "GuardName1";
-            this.GuardName1.ReadOnly = true;
             // 
             // NPC_Workers
             // 

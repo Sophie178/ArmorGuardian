@@ -40,7 +40,7 @@ namespace Example_Kursach
             string query2 = "select SecurityWorkers.SWorkerID, SecurityWorkers.Surname, SecurityWorkers.[Name], " +
                 " [dbo].[Weapon].WeaponID, " +
                 "sww.Received, " +
-                "[dbo].[Weapon].WName as model, " +
+                "[dbo].[Weapon].Model, " +
                 "[dbo].[Weapon].[Description], StockID, " +
                 "sww.Returned from SecurityWorkers " +
                 "inner join[dbo].[SecurityWorkers_Weapon] as sww" +
