@@ -19,7 +19,7 @@ namespace Example_Kursach
         string query = "select * from Transport";
 
         string table = "Transport";
-        string _tID = "TransportID";
+        //string _tID = "TransportID";
         string _model = "Model";
         string _seats = "Seats";
         string _armor = "ArmorPlating";

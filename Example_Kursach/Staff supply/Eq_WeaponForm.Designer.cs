@@ -43,6 +43,8 @@
             this.UpdateButton = new System.Windows.Forms.Button();
             this.UpdateWeapButton = new System.Windows.Forms.Button();
             this.AddWeaponButton = new System.Windows.Forms.Button();
+            this.WeaponID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.EquipID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Gap.SuspendLayout();
             this.LoginPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.WeaponGrid)).BeginInit();
@@ -127,6 +129,8 @@
             this.WeaponGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.WeaponGrid.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.WeaponGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.WeaponGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.WeaponID});
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Perpetua Titling MT", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -179,6 +183,7 @@
             this.AddButton.TabIndex = 6;
             this.AddButton.Text = "Add equipment record";
             this.AddButton.UseVisualStyleBackColor = false;
+            this.AddButton.Click += new System.EventHandler(this.AddButton_Click);
             this.AddButton.MouseEnter += new System.EventHandler(this.AddButton_MouseEnter);
             this.AddButton.MouseLeave += new System.EventHandler(this.AddButton_MouseLeave);
             // 
@@ -195,6 +200,8 @@
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.EqGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.EqGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.EqGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.EquipID});
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Perpetua Titling MT", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -228,6 +235,7 @@
             this.UpdateButton.TabIndex = 15;
             this.UpdateButton.Text = "update equipment record";
             this.UpdateButton.UseVisualStyleBackColor = false;
+            this.UpdateButton.Click += new System.EventHandler(this.UpdateButton_Click);
             this.UpdateButton.MouseEnter += new System.EventHandler(this.UpdateButton_MouseEnter);
             this.UpdateButton.MouseLeave += new System.EventHandler(this.UpdateButton_MouseLeave);
             // 
@@ -246,6 +254,7 @@
             this.UpdateWeapButton.TabIndex = 16;
             this.UpdateWeapButton.Text = "update weapon record";
             this.UpdateWeapButton.UseVisualStyleBackColor = false;
+            this.UpdateWeapButton.Click += new System.EventHandler(this.UpdateWeapButton_Click);
             this.UpdateWeapButton.MouseEnter += new System.EventHandler(this.UpdateWeapButton_MouseEnter);
             this.UpdateWeapButton.MouseLeave += new System.EventHandler(this.UpdateWeapButton_MouseLeave);
             // 
@@ -264,8 +273,24 @@
             this.AddWeaponButton.TabIndex = 17;
             this.AddWeaponButton.Text = "Add weapon record";
             this.AddWeaponButton.UseVisualStyleBackColor = false;
+            this.AddWeaponButton.Click += new System.EventHandler(this.AddWeaponButton_Click);
             this.AddWeaponButton.MouseEnter += new System.EventHandler(this.AddWeaponButton_MouseEnter);
             this.AddWeaponButton.MouseLeave += new System.EventHandler(this.AddWeaponButton_MouseLeave);
+            // 
+            // WeaponID
+            // 
+            this.WeaponID.DataPropertyName = "WeaponID";
+            this.WeaponID.HeaderText = "WeaponID";
+            this.WeaponID.Name = "WeaponID";
+            this.WeaponID.ReadOnly = true;
+            // 
+            // EquipID
+            // 
+            this.EquipID.DataPropertyName = "EquipID";
+            this.EquipID.HeaderText = "EquipmentID";
+            this.EquipID.Name = "EquipID";
+            this.EquipID.ReadOnly = true;
+            this.EquipID.Width = 263;
             // 
             // Eq_WeaponForm
             // 
@@ -300,5 +325,7 @@
         private System.Windows.Forms.Button AddWeaponButton;
         private System.Windows.Forms.Button UpdateWeapButton;
         private System.Windows.Forms.Button UpdateButton;
+        private System.Windows.Forms.DataGridViewTextBoxColumn WeaponID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn EquipID;
     }
 }

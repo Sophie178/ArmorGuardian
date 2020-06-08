@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 using System.Collections.Specialized;
+using Example_Kursach.Models;
 
 namespace Example_Kursach
 {
@@ -18,6 +19,16 @@ namespace Example_Kursach
 
         string equipQ = "select * from Equipment";
         string weaponQ = "select * from Weapon";
+
+        string tableE = "Equipment";
+        string tableW = "Weapon";
+
+        string _emodel = "Model";
+        string _ename = "Name";
+        string _edesc = "Description";
+
+        string _wmodel = "Model";
+        string _wdesc = "Description";
 
         public Eq_WeaponForm()
         {
@@ -158,7 +169,7 @@ namespace Example_Kursach
 
         private void AddWeaponButton_MouseEnter(object sender, EventArgs e)
         {
-            UpdateWeapButton.ForeColor = Color.FromArgb(204, 32, 20);
+            AddWeaponButton.ForeColor = Color.FromArgb(204, 32, 20);
         }
 
         private void AddWeaponButton_MouseLeave(object sender, EventArgs e)
@@ -179,6 +190,247 @@ namespace Example_Kursach
             newStyle.Font = new Font("Times New Roman", 20, FontStyle.Regular);
             EqGrid.CurrentRow.DefaultCellStyle.Font = newStyle.Font;
 
+        }
+        private EquipClass ValidateEquip()
+        {
+            string model = EqGrid.CurrentRow.Cells[_emodel].Value.ToString();
+            string name = EqGrid.CurrentRow.Cells[_ename].Value.ToString();
+            string desc = EqGrid.CurrentRow.Cells[_edesc].Value.ToString();
+
+            if (desc != null && model != null && name != null)
+            {
+
+                EquipClass equip = new EquipClass(name, model, desc);
+                return equip;
+            }
+            else
+            {
+                MessageBox.Show("Invalid Format");
+                return null;
+            }
+
+        }
+        private WeaponClass ValidateWeapon()
+        {
+            string model = WeaponGrid.CurrentRow.Cells[_wmodel].Value.ToString();
+            string desc = WeaponGrid.CurrentRow.Cells[_wdesc].Value.ToString();
+
+            if (desc != null && model != null)
+            {
+
+                WeaponClass weapon = new WeaponClass(model, desc);
+                return weapon;
+            }
+            else
+            {
+                MessageBox.Show("Invalid Format");
+                return null;
+            }
+
+        }
+
+        private void UpdatingE(string table, EquipClass equip)
+        {
+            if (MessageBox.Show("Edit this record?", $"{table} table", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+
+                connection.Open();
+
+
+                string query2 = $"update {table} set  " +
+                    $" {_edesc}  = '{equip.Description}', {_ename} = '{equip.Name}' " +
+                    $"where  {_emodel} = '{equip.Model}' ";
+                SqlCommand sqlCommand = new SqlCommand(query2, connection);
+                try
+                {
+                    sqlCommand.ExecuteNonQuery();
+                    SqlCommand cmd = new SqlCommand(equipQ, connection);
+                    cmd.ExecuteNonQuery();
+                    DataTable tariffTable = new DataTable();
+                    SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(cmd);
+                    sqlDataAdapter.Fill(tariffTable);
+
+                    EqGrid.DataSource = tariffTable;
+                    connection.Close();
+                }
+                catch
+                {
+                    MessageBox.Show(" Error.");
+                    connection.Close();
+                }
+
+            }
+            else
+            {
+                connection.Close();
+            }
+        }
+        private void UpdatingW(string table, WeaponClass weapon)
+        {
+            if (MessageBox.Show("Edit this record?", $"{table} table", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+
+                connection.Open();
+
+
+                string query2 = $"update {table} set  " +
+                    $" {_wdesc}  = '{weapon.Description}' " +
+                    $"where  {_emodel} = '{weapon.Model}' ";
+                SqlCommand sqlCommand = new SqlCommand(query2, connection);
+                try
+                {
+                    sqlCommand.ExecuteNonQuery();
+                    SqlCommand cmd = new SqlCommand(weaponQ, connection);
+                    cmd.ExecuteNonQuery();
+                    DataTable tariffTable = new DataTable();
+                    SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(cmd);
+                    sqlDataAdapter.Fill(tariffTable);
+
+                    WeaponGrid.DataSource = tariffTable;
+                    connection.Close();
+                }
+                catch
+                {
+                    MessageBox.Show(" Error.");
+                    connection.Close();
+                }
+
+            }
+            else
+            {
+                connection.Close();
+            }
+        }
+
+        private void AddingEq(string table, EquipClass equip)
+        {
+            if (MessageBox.Show("Add this record?", $"{table} table", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+
+                connection.Open();
+
+
+                string query2 = $"insert into {table} values ( " +
+                     $@" '{equip.Name}', " +
+                    $" '{equip.Model}' , '{equip.Description}' )";
+                SqlCommand sqlCommand = new SqlCommand(query2, connection);
+                try
+                {
+                    sqlCommand.ExecuteNonQuery();
+                    SqlCommand cmd = new SqlCommand(equipQ, connection);
+                    cmd.ExecuteNonQuery();
+                    DataTable tariffTable = new DataTable();
+                    SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(cmd);
+                    sqlDataAdapter.Fill(tariffTable);
+
+                    EqGrid.DataSource = tariffTable;
+                    connection.Close();
+                }
+                catch
+                {
+                    MessageBox.Show(" Error.");
+                    connection.Close();
+                }
+
+            }
+            else
+            {
+                connection.Close();
+            }
+        }
+        private void AddingW(string table, WeaponClass weapon)
+        {
+            if (MessageBox.Show("Add this record?", $"{table} table", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+
+                connection.Open();
+
+
+                string query2 = $"insert into {table} values ( " +
+                     $@" '{weapon.Model}', " +
+                    $" '{weapon.Description}' )";
+                SqlCommand sqlCommand = new SqlCommand(query2, connection);
+                try
+                {
+                    sqlCommand.ExecuteNonQuery();
+                    SqlCommand cmd = new SqlCommand(weaponQ, connection);
+                    cmd.ExecuteNonQuery();
+                    DataTable tariffTable = new DataTable();
+                    SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(cmd);
+                    sqlDataAdapter.Fill(tariffTable);
+
+                    WeaponGrid.DataSource = tariffTable;
+                    connection.Close();
+                }
+                catch
+                {
+                    MessageBox.Show(" Error.");
+                    connection.Close();
+                }
+
+            }
+            else
+            {
+                connection.Close();
+            }
+        }
+
+        private void UpdateWeapButton_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (ValidateWeapon() != null && ValidateWeapon().Model != "" && ValidateWeapon().Description != "")
+                    UpdatingW(tableW, ValidateWeapon());
+                else { MessageBox.Show("Empty cells are not allowed"); }
+            }
+            catch
+            {
+                MessageBox.Show("Invalid format");
+            }
+        }
+
+        private void UpdateButton_Click(object sender, EventArgs e)
+        {
+            
+
+            try
+            {
+                if (ValidateEquip() != null && ValidateEquip().Model != "" && ValidateEquip().Name != "" && ValidateEquip().Name != "")
+                    UpdatingE(tableE, ValidateEquip());
+                else { MessageBox.Show("Empty cells are not allowed"); }
+            }
+            catch
+            {
+                MessageBox.Show("Invalid format");
+            }
+        }
+
+        private void AddButton_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (ValidateEquip() != null && ValidateEquip().Model != "" && ValidateEquip().Name != "" && ValidateEquip().Name != "")
+                    AddingEq(tableE, ValidateEquip());
+                else { MessageBox.Show("Empty cells are not allowed"); }
+            }
+            catch
+            {
+                MessageBox.Show("Invalid format");
+            }
+        }
+
+        private void AddWeaponButton_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (ValidateWeapon() != null && ValidateWeapon().Model != "" && ValidateWeapon().Description != "")
+                    AddingW(tableW, ValidateWeapon());
+                else { MessageBox.Show("Empty cells are not allowed"); }
+            }
+            catch
+            {
+                MessageBox.Show("Invalid format");
+            }
         }
     }
 }
