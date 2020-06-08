@@ -101,5 +101,10 @@ namespace Example_Kursach.Clients
         {
             UpdateButton.ForeColor = Color.FromArgb(234, 211, 144);
         }
+
+        private void AddButton_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

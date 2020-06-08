@@ -162,6 +162,7 @@
             this.AddButton.TabIndex = 6;
             this.AddButton.Text = "Add record";
             this.AddButton.UseVisualStyleBackColor = false;
+            this.AddButton.Click += new System.EventHandler(this.AddButton_Click);
             this.AddButton.MouseEnter += new System.EventHandler(this.AddButton_MouseEnter);
             this.AddButton.MouseLeave += new System.EventHandler(this.AddButton_MouseLeave);
             // 

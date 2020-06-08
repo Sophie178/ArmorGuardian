@@ -94,14 +94,9 @@
     <Compile Include="Clients\Contracts_Clients.Designer.cs">
       <DependentUpon>Contracts_Clients.cs</DependentUpon>
     </Compile>
+    <Compile Include="Models\All_SWorker.cs" />
     <Compile Include="Models\CargoClass.cs" />
     <Compile Include="Models\DBUsers.cs" />
-    <Compile Include="DeleteForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="DeleteForm.Designer.cs">
-      <DependentUpon>DeleteForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="Models\DepClass.cs" />
     <Compile Include="Models\Employee.cs" />
     <Compile Include="Models\Guard.cs" />
@@ -254,6 +249,9 @@
     <EmbeddedResource Include="Clients\NPCashlessF.resx">
       <DependentUpon>NPCashlessF.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Clients\NPPaymentF.resx">
+      <DependentUpon>NPPaymentF.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormsServices\AllTariffsForm.resx">
       <DependentUpon>AllTariffsForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -268,9 +266,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Clients\Contracts_Clients.resx">
       <DependentUpon>Contracts_Clients.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="DeleteForm.resx">
-      <DependentUpon>DeleteForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Staff\DepForms.resx">
       <DependentUpon>DepForms.cs</DependentUpon>
