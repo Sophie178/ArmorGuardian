@@ -235,11 +235,11 @@ namespace Example_Kursach
             {
 
                 connection.Open();
-
+                string eID = EqGrid.CurrentRow.Cells["EquipID"].Value.ToString();
 
                 string query2 = $"update {table} set  " +
-                    $" {_edesc}  = '{equip.Description}', {_ename} = '{equip.Name}' " +
-                    $"where  {_emodel} = '{equip.Model}' ";
+                    $" {_edesc}  = '{equip.Description}', {_ename} = '{equip.Name}' , {_emodel} = '{equip.Model}' " +
+                    $"where EquipID = {eID} ";
                 SqlCommand sqlCommand = new SqlCommand(query2, connection);
                 try
                 {
@@ -271,11 +271,11 @@ namespace Example_Kursach
             {
 
                 connection.Open();
-
+                string wID = WeaponGrid.CurrentRow.Cells["WeaponID"].Value.ToString();
 
                 string query2 = $"update {table} set  " +
-                    $" {_wdesc}  = '{weapon.Description}' " +
-                    $"where  {_emodel} = '{weapon.Model}' ";
+                    $" {_wdesc}  = '{weapon.Description}', {_wmodel} = '{weapon.Model}' " +
+                    $"where WeaponID = {wID} ";
                 SqlCommand sqlCommand = new SqlCommand(query2, connection);
                 try
                 {

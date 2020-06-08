@@ -19,7 +19,6 @@ namespace Example_Kursach
         string query = "select * from Transport";
 
         string table = "Transport";
-        //string _tID = "TransportID";
         string _model = "Model";
         string _seats = "Seats";
         string _armor = "ArmorPlating";
@@ -176,12 +175,12 @@ namespace Example_Kursach
             {
 
                 connection.Open();
+                string tID = TransportGrid.CurrentRow.Cells["TransportID"].Value.ToString();
 
-
-                string query2 = $"update {table} set  " +
+                string query2 = $"update {table} set  {_model} = '{transport.Model}', " +
                     $" {_armor} = {transport.ArmorPlating}, {_seats} = {transport.Seats}, {_year} = {transport.ManufactureYear}, {_cStyle} = '{transport.CarBodyStyle}'," +
                     $" {_cit}  = {transport.CIT} " +
-                    $"where  {_model} = '{transport.Model}' ";
+                    $"where TransportID = {tID} ";
                 SqlCommand sqlCommand = new SqlCommand(query2, connection);
                 try
                 {

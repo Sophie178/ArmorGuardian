@@ -118,6 +118,8 @@
     <Compile Include="Models\EquipClass.cs" />
     <Compile Include="Models\FacilityClass.cs" />
     <Compile Include="Models\MassEventsClass.cs" />
+    <Compile Include="Models\OfficeClass.cs" />
+    <Compile Include="Models\StockClass.cs" />
     <Compile Include="Models\TechServicesClass.cs" />
     <Compile Include="Models\TransportClass.cs" />
     <Compile Include="Models\WeaponClass.cs" />
