@@ -28,14 +28,16 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.Gap = new System.Windows.Forms.Panel();
             this.TariffsLabel = new System.Windows.Forms.Label();
             this.NameLabel = new System.Windows.Forms.Label();
             this.LoginPanel = new System.Windows.Forms.Panel();
+            this.UpdateButton = new System.Windows.Forms.Button();
             this.BackButton = new System.Windows.Forms.Button();
             this.AddButton = new System.Windows.Forms.Button();
             this.ClientsGrid = new System.Windows.Forms.DataGridView();
+            this.NPClientID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Gap.SuspendLayout();
             this.LoginPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ClientsGrid)).BeginInit();
@@ -50,7 +52,7 @@
             this.Gap.Dock = System.Windows.Forms.DockStyle.Fill;
             this.Gap.Location = new System.Drawing.Point(0, 0);
             this.Gap.Name = "Gap";
-            this.Gap.Size = new System.Drawing.Size(1528, 911);
+            this.Gap.Size = new System.Drawing.Size(1510, 911);
             this.Gap.TabIndex = 6;
             // 
             // TariffsLabel
@@ -81,16 +83,36 @@
             // 
             // LoginPanel
             // 
+            this.LoginPanel.Controls.Add(this.UpdateButton);
             this.LoginPanel.Controls.Add(this.BackButton);
             this.LoginPanel.Controls.Add(this.AddButton);
             this.LoginPanel.Controls.Add(this.ClientsGrid);
             this.LoginPanel.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.LoginPanel.Font = new System.Drawing.Font("Perpetua Titling MT", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LoginPanel.Location = new System.Drawing.Point(0, 58);
-            this.LoginPanel.Margin = new System.Windows.Forms.Padding(2);
+            this.LoginPanel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.LoginPanel.Name = "LoginPanel";
-            this.LoginPanel.Size = new System.Drawing.Size(1528, 853);
+            this.LoginPanel.Size = new System.Drawing.Size(1510, 853);
             this.LoginPanel.TabIndex = 2;
+            // 
+            // UpdateButton
+            // 
+            this.UpdateButton.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.UpdateButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.UpdateButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Black;
+            this.UpdateButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.UpdateButton.Font = new System.Drawing.Font("Perpetua Titling MT", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.UpdateButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(211)))), ((int)(((byte)(144)))));
+            this.UpdateButton.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.UpdateButton.Location = new System.Drawing.Point(1208, 651);
+            this.UpdateButton.Name = "UpdateButton";
+            this.UpdateButton.Size = new System.Drawing.Size(283, 46);
+            this.UpdateButton.TabIndex = 18;
+            this.UpdateButton.Text = "update client";
+            this.UpdateButton.UseVisualStyleBackColor = false;
+            this.UpdateButton.Click += new System.EventHandler(this.UpdateButton_Click);
+            this.UpdateButton.MouseEnter += new System.EventHandler(this.UpdateButton_MouseEnter);
+            this.UpdateButton.MouseLeave += new System.EventHandler(this.UpdateButton_MouseLeave);
             // 
             // BackButton
             // 
@@ -120,38 +142,54 @@
             this.AddButton.Font = new System.Drawing.Font("Perpetua Titling MT", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.AddButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(211)))), ((int)(((byte)(144)))));
             this.AddButton.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.AddButton.Location = new System.Drawing.Point(1226, 756);
+            this.AddButton.Location = new System.Drawing.Point(1208, 756);
             this.AddButton.Name = "AddButton";
-            this.AddButton.Size = new System.Drawing.Size(265, 53);
+            this.AddButton.Size = new System.Drawing.Size(283, 53);
             this.AddButton.TabIndex = 6;
-            this.AddButton.Text = "Add record";
+            this.AddButton.Text = "Add Client";
             this.AddButton.UseVisualStyleBackColor = false;
+            this.AddButton.Click += new System.EventHandler(this.AddButton_Click);
+            this.AddButton.MouseEnter += new System.EventHandler(this.AddButton_MouseEnter);
+            this.AddButton.MouseLeave += new System.EventHandler(this.AddButton_MouseLeave);
             // 
             // ClientsGrid
             // 
+            this.ClientsGrid.AllowUserToDeleteRows = false;
             this.ClientsGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.ClientsGrid.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.ClientsGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Perpetua Titling MT", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.ClientsGrid.DefaultCellStyle = dataGridViewCellStyle2;
+            this.ClientsGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.NPClientID});
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Perpetua Titling MT", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.ClientsGrid.DefaultCellStyle = dataGridViewCellStyle1;
             this.ClientsGrid.Location = new System.Drawing.Point(21, 120);
             this.ClientsGrid.Name = "ClientsGrid";
-            this.ClientsGrid.ReadOnly = true;
             this.ClientsGrid.RowHeadersWidth = 82;
+            this.ClientsGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.ClientsGrid.Size = new System.Drawing.Size(1470, 378);
             this.ClientsGrid.TabIndex = 0;
+            this.ClientsGrid.CellBeginEdit += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.ClientsGrid_CellBeginEdit);
+            this.ClientsGrid.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.ClientsGrid_CellEndEdit);
+            // 
+            // NPClientID
+            // 
+            this.NPClientID.DataPropertyName = "NPClientID";
+            this.NPClientID.HeaderText = "NPClientID";
+            this.NPClientID.Name = "NPClientID";
+            this.NPClientID.ReadOnly = true;
+            this.NPClientID.Width = 232;
             // 
             // NPClients
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1528, 911);
+            this.ClientSize = new System.Drawing.Size(1510, 911);
             this.Controls.Add(this.Gap);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "NPClients";
@@ -174,5 +212,7 @@
         private System.Windows.Forms.Button BackButton;
         private System.Windows.Forms.Button AddButton;
         private System.Windows.Forms.DataGridView ClientsGrid;
+        private System.Windows.Forms.Button UpdateButton;
+        private System.Windows.Forms.DataGridViewTextBoxColumn NPClientID;
     }
 }
