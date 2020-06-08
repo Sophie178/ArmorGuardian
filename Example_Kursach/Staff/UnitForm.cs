@@ -159,7 +159,7 @@ namespace Example_Kursach
 
                 string query2 = $"update {table} set  " +
                     $" {_name}  = '{unitClass.Name}', {_phNumber} = '{unitClass.PhoneNumber}', {_office} = {unitClass.OfficeID}, {_floor}  = {unitClass.Floor} " +
-                    $"where UnitID = {wID} ";
+                    $" where UnitID = {wID} ";
                 SqlCommand sqlCommand = new SqlCommand(query2, connection);
                 try
                 {
