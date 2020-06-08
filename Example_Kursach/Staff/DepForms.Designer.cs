@@ -36,6 +36,8 @@
             this.BackButton = new System.Windows.Forms.Button();
             this.AddButton = new System.Windows.Forms.Button();
             this.StaffGrid = new System.Windows.Forms.DataGridView();
+            this.DepID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.UpdateButton = new System.Windows.Forms.Button();
             this.Gap.SuspendLayout();
             this.LoginPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.StaffGrid)).BeginInit();
@@ -67,6 +69,7 @@
             // 
             // LoginPanel
             // 
+            this.LoginPanel.Controls.Add(this.UpdateButton);
             this.LoginPanel.Controls.Add(this.TariffsLabel);
             this.LoginPanel.Controls.Add(this.BackButton);
             this.LoginPanel.Controls.Add(this.AddButton);
@@ -120,18 +123,23 @@
             this.AddButton.Font = new System.Drawing.Font("Perpetua Titling MT", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.AddButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(211)))), ((int)(((byte)(144)))));
             this.AddButton.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.AddButton.Location = new System.Drawing.Point(1337, 756);
+            this.AddButton.Location = new System.Drawing.Point(1297, 747);
             this.AddButton.Name = "AddButton";
-            this.AddButton.Size = new System.Drawing.Size(265, 53);
+            this.AddButton.Size = new System.Drawing.Size(305, 62);
             this.AddButton.TabIndex = 6;
             this.AddButton.Text = "Add record";
             this.AddButton.UseVisualStyleBackColor = false;
+            this.AddButton.Click += new System.EventHandler(this.AddButton_Click);
+            this.AddButton.MouseEnter += new System.EventHandler(this.AddButton_MouseEnter);
+            this.AddButton.MouseLeave += new System.EventHandler(this.AddButton_MouseLeave);
             // 
             // StaffGrid
             // 
-            this.StaffGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.StaffGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.StaffGrid.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.StaffGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.StaffGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.DepID});
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Perpetua Titling MT", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -142,10 +150,39 @@
             this.StaffGrid.DefaultCellStyle = dataGridViewCellStyle1;
             this.StaffGrid.Location = new System.Drawing.Point(180, 151);
             this.StaffGrid.Name = "StaffGrid";
-            this.StaffGrid.ReadOnly = true;
             this.StaffGrid.RowHeadersWidth = 82;
+            this.StaffGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.StaffGrid.Size = new System.Drawing.Size(1280, 336);
             this.StaffGrid.TabIndex = 0;
+            this.StaffGrid.CellBeginEdit += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.StaffGrid_CellBeginEdit);
+            this.StaffGrid.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.StaffGrid_CellEndEdit);
+            this.StaffGrid.UserDeletingRow += new System.Windows.Forms.DataGridViewRowCancelEventHandler(this.StaffGrid_UserDeletingRow);
+            // 
+            // DepID
+            // 
+            this.DepID.DataPropertyName = "DepID";
+            this.DepID.HeaderText = "DeaprtmentID";
+            this.DepID.Name = "DepID";
+            this.DepID.ReadOnly = true;
+            // 
+            // UpdateButton
+            // 
+            this.UpdateButton.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.UpdateButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.UpdateButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Black;
+            this.UpdateButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.UpdateButton.Font = new System.Drawing.Font("Perpetua Titling MT", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.UpdateButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(211)))), ((int)(((byte)(144)))));
+            this.UpdateButton.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.UpdateButton.Location = new System.Drawing.Point(1297, 653);
+            this.UpdateButton.Name = "UpdateButton";
+            this.UpdateButton.Size = new System.Drawing.Size(305, 71);
+            this.UpdateButton.TabIndex = 16;
+            this.UpdateButton.Text = "update record";
+            this.UpdateButton.UseVisualStyleBackColor = false;
+            this.UpdateButton.Click += new System.EventHandler(this.UpdateButton_Click);
+            this.UpdateButton.MouseEnter += new System.EventHandler(this.UpdateButton_MouseEnter);
+            this.UpdateButton.MouseLeave += new System.EventHandler(this.UpdateButton_MouseLeave);
             // 
             // DepForms
             // 
@@ -175,5 +212,7 @@
         private System.Windows.Forms.Button BackButton;
         private System.Windows.Forms.Button AddButton;
         private System.Windows.Forms.DataGridView StaffGrid;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DepID;
+        private System.Windows.Forms.Button UpdateButton;
     }
 }

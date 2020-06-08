@@ -70,10 +70,10 @@
     <Compile Include="FormsServices\AllTariffsForm.Designer.cs">
       <DependentUpon>AllTariffsForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormsServices\Authorization.cs">
+    <Compile Include="Main windows\Authorization.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormsServices\Authorization.Designer.cs">
+    <Compile Include="Main windows\Authorization.Designer.cs">
       <DependentUpon>Authorization.cs</DependentUpon>
     </Compile>
     <Compile Include="FormsServices\BGForm.cs">
@@ -102,16 +102,20 @@
     <Compile Include="DeleteForm.Designer.cs">
       <DependentUpon>DeleteForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="DepForms.cs">
+    <Compile Include="Models\DepClass.cs" />
+    <Compile Include="Models\Employee.cs" />
+    <Compile Include="Models\Guard.cs" />
+    <Compile Include="Models\UnitClass.cs" />
+    <Compile Include="Staff\DepForms.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="DepForms.Designer.cs">
+    <Compile Include="Staff\DepForms.Designer.cs">
       <DependentUpon>DepForms.cs</DependentUpon>
     </Compile>
-    <Compile Include="EmpForm.cs">
+    <Compile Include="Staff\EmpForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="EmpForm.Designer.cs">
+    <Compile Include="Staff\EmpForm.Designer.cs">
       <DependentUpon>EmpForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Models\BGService.cs" />
@@ -123,10 +127,10 @@
     <Compile Include="Models\TechServicesClass.cs" />
     <Compile Include="Models\TransportClass.cs" />
     <Compile Include="Models\WeaponClass.cs" />
-    <Compile Include="Staff supply\Eq_WeaponForm.cs">
+    <Compile Include="Staff\Eq_WeaponForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Staff supply\Eq_WeaponForm.Designer.cs">
+    <Compile Include="Staff\Eq_WeaponForm.Designer.cs">
       <DependentUpon>Eq_WeaponForm.cs</DependentUpon>
     </Compile>
     <Compile Include="FormsServices\FacilityForm.cs">
@@ -154,10 +158,10 @@
     <Compile Include="FormsServices\MassEventsForm.Designer.cs">
       <DependentUpon>MassEventsForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormsServices\Menu.cs">
+    <Compile Include="Main windows\Menu.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormsServices\Menu.Designer.cs">
+    <Compile Include="Main windows\Menu.Designer.cs">
       <DependentUpon>Menu.cs</DependentUpon>
     </Compile>
     <Compile Include="Models\SecurityGuard.cs" />
@@ -188,28 +192,28 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="repo\BaseRepository.cs" />
-    <Compile Include="Staff supply\SecurityGuards.cs">
+    <Compile Include="Staff\SecurityGuards.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Staff supply\SecurityGuards.Designer.cs">
+    <Compile Include="Staff\SecurityGuards.Designer.cs">
       <DependentUpon>SecurityGuards.cs</DependentUpon>
     </Compile>
-    <Compile Include="Staff supply\SecurityWInfo.cs">
+    <Compile Include="Staff\SecurityWInfo.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Staff supply\SecurityWInfo.Designer.cs">
+    <Compile Include="Staff\SecurityWInfo.Designer.cs">
       <DependentUpon>SecurityWInfo.cs</DependentUpon>
     </Compile>
-    <Compile Include="ServicesForm.cs">
+    <Compile Include="Main windows\ServicesForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ServicesForm.Designer.cs">
+    <Compile Include="Main windows\ServicesForm.Designer.cs">
       <DependentUpon>ServicesForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Staff.cs">
+    <Compile Include="Main windows\Staff.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Staff.Designer.cs">
+    <Compile Include="Main windows\Staff.Designer.cs">
       <DependentUpon>Staff.cs</DependentUpon>
     </Compile>
     <Compile Include="transact\Stock_All.cs">
@@ -230,16 +234,16 @@
     <Compile Include="FormsServices\TechServices.Designer.cs">
       <DependentUpon>TechServices.cs</DependentUpon>
     </Compile>
-    <Compile Include="Staff supply\TranspForm.cs">
+    <Compile Include="Staff\TranspForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Staff supply\TranspForm.Designer.cs">
+    <Compile Include="Staff\TranspForm.Designer.cs">
       <DependentUpon>TranspForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="UnitForm.cs">
+    <Compile Include="Staff\UnitForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UnitForm.Designer.cs">
+    <Compile Include="Staff\UnitForm.Designer.cs">
       <DependentUpon>UnitForm.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Clients\JPPaymentF.resx">
@@ -251,7 +255,7 @@
     <EmbeddedResource Include="FormsServices\AllTariffsForm.resx">
       <DependentUpon>AllTariffsForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormsServices\Authorization.resx">
+    <EmbeddedResource Include="Main windows\Authorization.resx">
       <DependentUpon>Authorization.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormsServices\BGForm.resx">
@@ -266,13 +270,13 @@
     <EmbeddedResource Include="DeleteForm.resx">
       <DependentUpon>DeleteForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="DepForms.resx">
+    <EmbeddedResource Include="Staff\DepForms.resx">
       <DependentUpon>DepForms.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="EmpForm.resx">
+    <EmbeddedResource Include="Staff\EmpForm.resx">
       <DependentUpon>EmpForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Staff supply\Eq_WeaponForm.resx">
+    <EmbeddedResource Include="Staff\Eq_WeaponForm.resx">
       <DependentUpon>Eq_WeaponForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormsServices\FacilityForm.resx">
@@ -287,7 +291,7 @@
     <EmbeddedResource Include="FormsServices\MassEventsForm.resx">
       <DependentUpon>MassEventsForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormsServices\Menu.resx">
+    <EmbeddedResource Include="Main windows\Menu.resx">
       <DependentUpon>Menu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Clients\NPClients.resx">
@@ -309,16 +313,16 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="Staff supply\SecurityGuards.resx">
+    <EmbeddedResource Include="Staff\SecurityGuards.resx">
       <DependentUpon>SecurityGuards.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Staff supply\SecurityWInfo.resx">
+    <EmbeddedResource Include="Staff\SecurityWInfo.resx">
       <DependentUpon>SecurityWInfo.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ServicesForm.resx">
+    <EmbeddedResource Include="Main windows\ServicesForm.resx">
       <DependentUpon>ServicesForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Staff.resx">
+    <EmbeddedResource Include="Main windows\Staff.resx">
       <DependentUpon>Staff.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="transact\Contracts_Workers.resx">
@@ -333,10 +337,10 @@
     <EmbeddedResource Include="FormsServices\TechServices.resx">
       <DependentUpon>TechServices.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Staff supply\TranspForm.resx">
+    <EmbeddedResource Include="Staff\TranspForm.resx">
       <DependentUpon>TranspForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UnitForm.resx">
+    <EmbeddedResource Include="Staff\UnitForm.resx">
       <DependentUpon>UnitForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
