@@ -105,6 +105,7 @@
     <Compile Include="Models\DepClass.cs" />
     <Compile Include="Models\Employee.cs" />
     <Compile Include="Models\Guard.cs" />
+    <Compile Include="Models\Contract_W.cs" />
     <Compile Include="Models\UnitClass.cs" />
     <Compile Include="Staff\DepForms.cs">
       <SubType>Form</SubType>

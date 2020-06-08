@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using Example_Kursach.Models;
 
 namespace Example_Kursach
 {
@@ -15,6 +16,12 @@ namespace Example_Kursach
     {
         SqlConnection connection = new SqlConnection(@"Data Source=PERIIT\MY_INSTANCE;Initial Catalog=kursach;Integrated Security=True");
 
+        string table1 = "NPContract_SecurityWorkers";
+        string table2 = "JPContract_SecurityWorkers";
+
+        string _swID = "SWorkerID";
+        string _npcID = "NPContractID";
+        string _jpcID = "JPContractID";
 
         public NPC_Workers()
         {
@@ -89,7 +96,126 @@ namespace Example_Kursach
         {
             BackButton.ForeColor = Color.FromArgb(234, 211, 144);
         }
+        private void Deleting(string table, string id1, string id2, DataGridView dataGridView, DataGridViewRowCancelEventArgs e)
+        {
+            if (dataGridView.CurrentRow.Cells[id1].Value != DBNull.Value && dataGridView.CurrentRow.Cells[id2].Value != DBNull.Value)
+            {
+                if (MessageBox.Show("Delete this record?", $"{table} services table", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                {
+                    string id_table1 = dataGridView.CurrentRow.Cells[id1].Value.ToString();
+                    string id_table2 = dataGridView.CurrentRow.Cells[id2].Value.ToString();
+                    connection.Open();
+                    string query2 = $"delete from {table} where SWorkerID = {id_table1} and {id2} = {id_table2}";
+                    SqlCommand sqlCommand = new SqlCommand(query2, connection);
+                    try
+                    {
+                        sqlCommand.ExecuteNonQuery();
+                        connection.Close();
+                    }
+                    catch
+                    {
+                        MessageBox.Show(" Error.");
+                        e.Cancel = true;
+                        connection.Close();
+                    }
 
+                }
+                else
+                {
+                    e.Cancel = true;
+                    connection.Close();
+                }
 
+            }
+        }
+        private void NPCGrid_UserDeletingRow(object sender, DataGridViewRowCancelEventArgs e)
+        {
+            Deleting(table1, _swID, _npcID, NPCGrid, e);
+        }
+
+        private void JPCGrid_UserDeletingRow(object sender, DataGridViewRowCancelEventArgs e)
+        {
+            Deleting(table2, "SWorkerID3", _jpcID, JPCGrid, e);
+        }
+
+        private void AddJPButton_MouseEnter(object sender, EventArgs e)
+        {
+            AddJPButton.ForeColor = Color.FromArgb(204, 32, 20);
+        }
+
+        private void AddJPButton_MouseLeave(object sender, EventArgs e)
+        {
+            AddJPButton.ForeColor = Color.FromArgb(234, 211, 144);
+        }
+
+        private void AddNPButton_MouseEnter(object sender, EventArgs e)
+        {
+            AddNPButton.ForeColor = Color.FromArgb(204, 32, 20);
+        }
+
+        private void AddNPButton_MouseLeave(object sender, EventArgs e)
+        {
+            AddNPButton.ForeColor = Color.FromArgb(234, 211, 144);
+        }
+        private void Adding(string table, Contract_W contract_W)
+        {
+            if (MessageBox.Show("Add this record?", $"{table} table", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+
+                connection.Open();
+
+                string query2 = $"insert into {table} values ( " +
+                    $" {contract_W.ContractID} , {contract_W.SWorkerID} )";
+                SqlCommand sqlCommand = new SqlCommand(query2, connection);
+                try
+                {
+                    sqlCommand.ExecuteNonQuery();
+                    connection.Close();
+                    LoadData();
+                }
+                catch
+                {
+                    MessageBox.Show(" Error.");
+                    connection.Close();
+                }
+
+            }
+            else
+            {
+                connection.Close();
+            }
+        }
+
+        private void AddNPButton_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                int cid = Convert.ToInt32(NPCGrid.CurrentRow.Cells[_npcID].Value.ToString());
+                int swid = Convert.ToInt32(NPCGrid.CurrentRow.Cells[_swID].Value.ToString());
+
+                Contract_W contract_W = new Contract_W(cid, swid);
+                Adding(table1, contract_W);
+            }
+            catch
+            {
+                MessageBox.Show("Invalid format");
+            }
+        }
+
+        private void AddJPButton_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                int cid = Convert.ToInt32(JPCGrid.CurrentRow.Cells[_jpcID].Value.ToString());
+                int swid = Convert.ToInt32(JPCGrid.CurrentRow.Cells["SWorkerID3"].Value.ToString());
+
+                Contract_W contract_W = new Contract_W(cid, swid);
+                Adding(table2, contract_W);
+            }
+            catch
+            {
+                MessageBox.Show("Invalid format");
+            }
+        }
     }
 }

@@ -28,21 +28,30 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.Gap = new System.Windows.Forms.Panel();
             this.TariffsLabel = new System.Windows.Forms.Label();
             this.NameLabel = new System.Windows.Forms.Label();
             this.LoginPanel = new System.Windows.Forms.Panel();
+            this.AddJPButton = new System.Windows.Forms.Button();
+            this.AddNPButton = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.JPCGrid = new System.Windows.Forms.DataGridView();
-            this.SWorkerID3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.JPContractID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.BackButton = new System.Windows.Forms.Button();
             this.NPCGrid = new System.Windows.Forms.DataGridView();
-            this.SWorkerID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.NPContractID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.label2 = new System.Windows.Forms.Label();
+            this.SWorkerID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ClientSurname = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ClientName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.GuardSurname = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.GuardName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.JPContractID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SWorkerID3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ClientName1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.GuardSurname1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.GuardName1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Gap.SuspendLayout();
             this.LoginPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.JPCGrid)).BeginInit();
@@ -90,6 +99,8 @@
             // 
             // LoginPanel
             // 
+            this.LoginPanel.Controls.Add(this.AddJPButton);
+            this.LoginPanel.Controls.Add(this.AddNPButton);
             this.LoginPanel.Controls.Add(this.label2);
             this.LoginPanel.Controls.Add(this.label1);
             this.LoginPanel.Controls.Add(this.JPCGrid);
@@ -103,13 +114,65 @@
             this.LoginPanel.Size = new System.Drawing.Size(1973, 1384);
             this.LoginPanel.TabIndex = 2;
             // 
+            // AddJPButton
+            // 
+            this.AddJPButton.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.AddJPButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.AddJPButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Black;
+            this.AddJPButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.AddJPButton.Font = new System.Drawing.Font("Perpetua Titling MT", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.AddJPButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(211)))), ((int)(((byte)(144)))));
+            this.AddJPButton.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.AddJPButton.Location = new System.Drawing.Point(1425, 1201);
+            this.AddJPButton.Name = "AddJPButton";
+            this.AddJPButton.Size = new System.Drawing.Size(305, 62);
+            this.AddJPButton.TabIndex = 14;
+            this.AddJPButton.Text = "Add record";
+            this.AddJPButton.UseVisualStyleBackColor = false;
+            this.AddJPButton.Click += new System.EventHandler(this.AddJPButton_Click);
+            this.AddJPButton.MouseEnter += new System.EventHandler(this.AddJPButton_MouseEnter);
+            this.AddJPButton.MouseLeave += new System.EventHandler(this.AddJPButton_MouseLeave);
+            // 
+            // AddNPButton
+            // 
+            this.AddNPButton.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.AddNPButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.AddNPButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Black;
+            this.AddNPButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.AddNPButton.Font = new System.Drawing.Font("Perpetua Titling MT", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.AddNPButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(211)))), ((int)(((byte)(144)))));
+            this.AddNPButton.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.AddNPButton.Location = new System.Drawing.Point(1425, 530);
+            this.AddNPButton.Name = "AddNPButton";
+            this.AddNPButton.Size = new System.Drawing.Size(305, 62);
+            this.AddNPButton.TabIndex = 13;
+            this.AddNPButton.Text = "Add record";
+            this.AddNPButton.UseVisualStyleBackColor = false;
+            this.AddNPButton.Click += new System.EventHandler(this.AddNPButton_Click);
+            this.AddNPButton.MouseEnter += new System.EventHandler(this.AddNPButton_MouseEnter);
+            this.AddNPButton.MouseLeave += new System.EventHandler(this.AddNPButton_MouseLeave);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Perpetua Titling MT", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(211)))), ((int)(((byte)(144)))));
+            this.label2.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.label2.Location = new System.Drawing.Point(384, 543);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(820, 34);
+            this.label2.TabIndex = 12;
+            this.label2.Text = "Natural Person Clients Contracts & Guards";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label2.UseMnemonic = false;
+            // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Perpetua Titling MT", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(211)))), ((int)(((byte)(144)))));
             this.label1.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.label1.Location = new System.Drawing.Point(566, 705);
+            this.label1.Location = new System.Drawing.Point(384, 1214);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(831, 34);
             this.label1.TabIndex = 11;
@@ -119,39 +182,30 @@
             // 
             // JPCGrid
             // 
-            this.JPCGrid.AllowUserToDeleteRows = false;
             this.JPCGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.JPCGrid.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.JPCGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.JPCGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.JPContractID,
             this.SWorkerID3,
-            this.JPContractID});
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Perpetua Titling MT", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.JPCGrid.DefaultCellStyle = dataGridViewCellStyle3;
-            this.JPCGrid.Location = new System.Drawing.Point(97, 773);
+            this.ClientName1,
+            this.GuardSurname1,
+            this.GuardName1});
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Perpetua Titling MT", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.JPCGrid.DefaultCellStyle = dataGridViewCellStyle1;
+            this.JPCGrid.Location = new System.Drawing.Point(97, 743);
             this.JPCGrid.Name = "JPCGrid";
             this.JPCGrid.RowHeadersWidth = 82;
             this.JPCGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.JPCGrid.Size = new System.Drawing.Size(1788, 439);
             this.JPCGrid.TabIndex = 10;
-            // 
-            // SWorkerID3
-            // 
-            this.SWorkerID3.DataPropertyName = "SWorkerID";
-            this.SWorkerID3.HeaderText = "Guard ID";
-            this.SWorkerID3.Name = "SWorkerID3";
-            // 
-            // JPContractID
-            // 
-            this.JPContractID.DataPropertyName = "JPContractID";
-            this.JPContractID.HeaderText = "JPContract ID";
-            this.JPContractID.Name = "JPContractID";
+            this.JPCGrid.UserDeletingRow += new System.Windows.Forms.DataGridViewRowCancelEventHandler(this.JPCGrid_UserDeletingRow);
             // 
             // BackButton
             // 
@@ -174,33 +228,31 @@
             // 
             // NPCGrid
             // 
-            this.NPCGrid.AllowUserToDeleteRows = false;
             this.NPCGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.NPCGrid.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.NPCGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.NPCGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.NPContractID,
             this.SWorkerID,
-            this.NPContractID});
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Perpetua Titling MT", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.NPCGrid.DefaultCellStyle = dataGridViewCellStyle4;
-            this.NPCGrid.Location = new System.Drawing.Point(97, 120);
+            this.ClientSurname,
+            this.ClientName,
+            this.GuardSurname,
+            this.GuardName});
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Perpetua Titling MT", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.NPCGrid.DefaultCellStyle = dataGridViewCellStyle2;
+            this.NPCGrid.Location = new System.Drawing.Point(97, 28);
             this.NPCGrid.Name = "NPCGrid";
             this.NPCGrid.RowHeadersWidth = 82;
             this.NPCGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.NPCGrid.Size = new System.Drawing.Size(1788, 483);
             this.NPCGrid.TabIndex = 0;
-            // 
-            // SWorkerID
-            // 
-            this.SWorkerID.DataPropertyName = "SWorkerID";
-            this.SWorkerID.HeaderText = "Guard ID";
-            this.SWorkerID.Name = "SWorkerID";
+            this.NPCGrid.UserDeletingRow += new System.Windows.Forms.DataGridViewRowCancelEventHandler(this.NPCGrid_UserDeletingRow);
             // 
             // NPContractID
             // 
@@ -208,19 +260,72 @@
             this.NPContractID.HeaderText = "NPContract ID";
             this.NPContractID.Name = "NPContractID";
             // 
-            // label2
+            // SWorkerID
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Perpetua Titling MT", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(211)))), ((int)(((byte)(144)))));
-            this.label2.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.label2.Location = new System.Drawing.Point(566, 61);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(820, 34);
-            this.label2.TabIndex = 12;
-            this.label2.Text = "Natural Person Clients Contracts & Guards";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.label2.UseMnemonic = false;
+            this.SWorkerID.DataPropertyName = "SWorkerID";
+            this.SWorkerID.HeaderText = "Guard ID";
+            this.SWorkerID.Name = "SWorkerID";
+            // 
+            // ClientSurname
+            // 
+            this.ClientSurname.DataPropertyName = "Client_Surname";
+            this.ClientSurname.HeaderText = "Client_Surname";
+            this.ClientSurname.Name = "ClientSurname";
+            this.ClientSurname.ReadOnly = true;
+            // 
+            // ClientName
+            // 
+            this.ClientName.DataPropertyName = "Client_Name";
+            this.ClientName.HeaderText = "Client_Name";
+            this.ClientName.Name = "ClientName";
+            this.ClientName.ReadOnly = true;
+            // 
+            // GuardSurname
+            // 
+            this.GuardSurname.DataPropertyName = "Guard_Name";
+            this.GuardSurname.HeaderText = "Guard_Surname";
+            this.GuardSurname.Name = "GuardSurname";
+            this.GuardSurname.ReadOnly = true;
+            // 
+            // GuardName
+            // 
+            this.GuardName.DataPropertyName = "Guard_Name";
+            this.GuardName.HeaderText = "Guard_Name";
+            this.GuardName.Name = "GuardName";
+            this.GuardName.ReadOnly = true;
+            // 
+            // JPContractID
+            // 
+            this.JPContractID.DataPropertyName = "JPContractID";
+            this.JPContractID.HeaderText = "JPContract ID";
+            this.JPContractID.Name = "JPContractID";
+            // 
+            // SWorkerID3
+            // 
+            this.SWorkerID3.DataPropertyName = "SWorkerID";
+            this.SWorkerID3.HeaderText = "Guard ID";
+            this.SWorkerID3.Name = "SWorkerID3";
+            // 
+            // ClientName1
+            // 
+            this.ClientName1.DataPropertyName = "ClientName";
+            this.ClientName1.HeaderText = "Client_Name";
+            this.ClientName1.Name = "ClientName1";
+            this.ClientName1.ReadOnly = true;
+            // 
+            // GuardSurname1
+            // 
+            this.GuardSurname1.DataPropertyName = "Guard_Surname";
+            this.GuardSurname1.HeaderText = "Guard_Surname";
+            this.GuardSurname1.Name = "GuardSurname1";
+            this.GuardSurname1.ReadOnly = true;
+            // 
+            // GuardName1
+            // 
+            this.GuardName1.DataPropertyName = "Guard_Name";
+            this.GuardName1.HeaderText = "Guard_Name";
+            this.GuardName1.Name = "GuardName1";
+            this.GuardName1.ReadOnly = true;
             // 
             // NPC_Workers
             // 
@@ -251,11 +356,20 @@
         private System.Windows.Forms.DataGridView JPCGrid;
         private System.Windows.Forms.Button BackButton;
         private System.Windows.Forms.DataGridView NPCGrid;
-        private System.Windows.Forms.DataGridViewTextBoxColumn SWorkerID3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn JPContractID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn SWorkerID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn NPContractID;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button AddJPButton;
+        private System.Windows.Forms.Button AddNPButton;
+        private System.Windows.Forms.DataGridViewTextBoxColumn JPContractID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn SWorkerID3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ClientName1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn GuardSurname1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn GuardName1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn NPContractID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn SWorkerID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ClientSurname;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ClientName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn GuardSurname;
+        private System.Windows.Forms.DataGridViewTextBoxColumn GuardName;
     }
 }
