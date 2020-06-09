@@ -130,13 +130,13 @@ namespace Example_Kursach.Clients
             {
 
                 connection.Open();
-                string wID = PaymentGrid.CurrentRow.Cells["CashlesPID"].Value.ToString();
+                string wID = PaymentGrid.CurrentRow.Cells["CashlessPID"].Value.ToString();
 
                 string query2 = $"update {table} set  " +
                     $" {_contract}  = {jPCashless.JPContract}, {_bic} = '{jPCashless.BIC}', " +
                     $"{_tranAcc} = '{jPCashless.TranAcc}', {_corrAcc} = '{jPCashless.CorrAcc}', " +
                     $"{_paymentDT} = '{jPCashless.PaymentDT}', {_paid}  = '{jPCashless.PaidAmount}' " +
-                    $"where CashlesPID = {wID} ";
+                    $"where CashlessPID = {wID} ";
                 SqlCommand sqlCommand = new SqlCommand(query2, connection);
                 try
                 {
@@ -193,8 +193,9 @@ namespace Example_Kursach.Clients
         {
             try
             {
-
-                Updating(_table, ValidatePayment());
+                if (ValidatePayment().TranAcc.Length == 20 && ValidatePayment().CorrAcc.Length == 20 && ValidatePayment().BIC.Length == 9 )
+                    Updating(_table, ValidatePayment());
+                else { MessageBox.Show("Check input format"); }
             }
             catch
             {
@@ -206,7 +207,9 @@ namespace Example_Kursach.Clients
         {
             try
             {
-                Adding(_table, ValidatePayment());
+                if (ValidatePayment().TranAcc.Length == 20 && ValidatePayment().CorrAcc.Length == 20 && ValidatePayment().BIC.Length == 9)
+                    Adding(_table, ValidatePayment());
+                else { MessageBox.Show("Check input format"); }
             }
             catch
             {

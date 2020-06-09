@@ -38,6 +38,7 @@
             this.AddButton = new System.Windows.Forms.Button();
             this.StaffGrid = new System.Windows.Forms.DataGridView();
             this.UnitID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DeleteButton = new System.Windows.Forms.Button();
             this.Gap.SuspendLayout();
             this.LoginPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.StaffGrid)).BeginInit();
@@ -83,6 +84,7 @@
             // 
             // LoginPanel
             // 
+            this.LoginPanel.Controls.Add(this.DeleteButton);
             this.LoginPanel.Controls.Add(this.UpdateButton);
             this.LoginPanel.Controls.Add(this.BackButton);
             this.LoginPanel.Controls.Add(this.AddButton);
@@ -123,9 +125,9 @@
             this.BackButton.Font = new System.Drawing.Font("Perpetua Titling MT", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BackButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(211)))), ((int)(((byte)(144)))));
             this.BackButton.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.BackButton.Location = new System.Drawing.Point(30, 756);
+            this.BackButton.Location = new System.Drawing.Point(30, 745);
             this.BackButton.Name = "BackButton";
-            this.BackButton.Size = new System.Drawing.Size(265, 53);
+            this.BackButton.Size = new System.Drawing.Size(265, 64);
             this.BackButton.TabIndex = 8;
             this.BackButton.Text = "Back";
             this.BackButton.UseVisualStyleBackColor = false;
@@ -185,6 +187,22 @@
             this.UnitID.Name = "UnitID";
             this.UnitID.ReadOnly = true;
             // 
+            // DeleteButton
+            // 
+            this.DeleteButton.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.DeleteButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.DeleteButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Black;
+            this.DeleteButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.DeleteButton.Font = new System.Drawing.Font("Perpetua Titling MT", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DeleteButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(211)))), ((int)(((byte)(144)))));
+            this.DeleteButton.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.DeleteButton.Location = new System.Drawing.Point(470, 745);
+            this.DeleteButton.Name = "DeleteButton";
+            this.DeleteButton.Size = new System.Drawing.Size(705, 64);
+            this.DeleteButton.TabIndex = 17;
+            this.DeleteButton.Text = "Choose row to delete and press \"del\"";
+            this.DeleteButton.UseVisualStyleBackColor = false;
+            // 
             // UnitForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -214,5 +232,6 @@
         private System.Windows.Forms.DataGridView StaffGrid;
         private System.Windows.Forms.Button UpdateButton;
         private System.Windows.Forms.DataGridViewTextBoxColumn UnitID;
+        private System.Windows.Forms.Button DeleteButton;
     }
 }

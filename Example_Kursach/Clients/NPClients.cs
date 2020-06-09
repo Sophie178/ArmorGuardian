@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 using Example_Kursach.Models;
+using System.Text.RegularExpressions;
 
 namespace Example_Kursach
 {
@@ -28,6 +29,7 @@ namespace Example_Kursach
         string _email = "Email";
         string _pseries = "PSeries";
         string _passnumber = "PassNumber";
+        string phoneNumberFormat = @"\+7-9[0-9]{2}-[0-9]{3}-[0-9]{2}-[0-9]{2}";
 
 
         public NPClients()
@@ -181,12 +183,12 @@ namespace Example_Kursach
         }
         private void UpdateButton_Click(object sender, EventArgs e)
         {
-            try
+            try 
             {
-                if (ValidateClients() != null && ValidateClients().Name != "" && ValidateClients().PhoneNumber != ""
+                if (ValidateClients() != null && ValidateClients().Name != "" && Regex.IsMatch(ValidateClients().PhoneNumber, phoneNumberFormat)
                     && ValidateClients().PassNumber.ToString() != "" && ValidateClients().Surname != "")
                     Updating(_table, ValidateClients());
-                else { MessageBox.Show("Empty cells are not allowed"); }
+                else { MessageBox.Show("Check empty cells or input format"); }
             }
             catch
             {
@@ -198,10 +200,10 @@ namespace Example_Kursach
         {
             try
             {
-                if (ValidateClients() != null && ValidateClients().Name != "" && ValidateClients().PhoneNumber != ""
+                if (ValidateClients() != null && ValidateClients().Name != "" && Regex.IsMatch(ValidateClients().PhoneNumber, phoneNumberFormat)
                     && ValidateClients().PassNumber.ToString() != "" && ValidateClients().Surname != "")
                     Adding(_table, ValidateClients());
-                else { MessageBox.Show("Empty cells are not allowed"); }
+                else { MessageBox.Show("Check empty cells or input format"); }
             }
             catch
             {

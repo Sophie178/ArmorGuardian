@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 using Example_Kursach.Models;
+using System.Text.RegularExpressions;
 
 namespace Example_Kursach
 {
@@ -29,7 +30,7 @@ namespace Example_Kursach
         string _license = "LicenseExpDate";
         string _unit = "UnitID";
         string _position = "Position";
-
+        string phoneNumberFormat = @"\+7-9[0-9]{2}-[0-9]{3}-[0-9]{2}-[0-9]{2}";
 
         public SecurityGuards()
         {
@@ -167,18 +168,8 @@ namespace Example_Kursach
             string address = StaffGrid.CurrentRow.Cells[_address].Value.ToString();
             string position = StaffGrid.CurrentRow.Cells[_position].Value.ToString();
 
-            if (name != null && surname != null)
-            {
-
-                Guard guard = new Guard(surname, name, dob, address, phNumber, rank, licenseExp,unit, position);
-                return guard;
-            }
-            else
-            {
-                MessageBox.Show("Invalid Format");
-                return null;
-            }
-
+            Guard guard = new Guard(surname, name, dob, address, phNumber, rank, licenseExp, unit, position);
+            return guard;
         }
         private void Updating(string table, Guard guard)
         {
@@ -260,10 +251,11 @@ namespace Example_Kursach
         {
             try
             {
-                if (ValidateGuard() != null && ValidateGuard().Name != "" && ValidateGuard().PhoneNumber != "" 
-                    && ValidateGuard().UnitID.ToString() != "" && ValidateGuard().LRank <= 6 && ValidateGuard().LRank >= 4)
+                if (ValidateGuard().Name != "" && Regex.IsMatch(ValidateGuard().PhoneNumber, phoneNumberFormat)
+                    && ValidateGuard().Address != "" && ValidateGuard().LRank <= 6 && ValidateGuard().LRank >= 4
+                    && ValidateGuard().Surname != "" && ValidateGuard().Position != "")
                     Updating(_table, ValidateGuard());
-                else { MessageBox.Show("Empty cells are not allowed"); }
+                else { MessageBox.Show("Check empty cells or input format"); }
             }
             catch
             {
@@ -275,10 +267,11 @@ namespace Example_Kursach
         {
             try
             {
-                if (ValidateGuard() != null && ValidateGuard().Name != "" && ValidateGuard().PhoneNumber != ""
-                    && ValidateGuard().UnitID.ToString() != "" && ValidateGuard().LRank <= 6 && ValidateGuard().LRank >= 4)
+                if (ValidateGuard().Name != "" && Regex.IsMatch(ValidateGuard().PhoneNumber, phoneNumberFormat)
+                    && ValidateGuard().Address != "" && ValidateGuard().LRank <= 6 && ValidateGuard().LRank >= 4 
+                    && ValidateGuard().Surname != "" && ValidateGuard().Position != "")
                     Adding(_table, ValidateGuard());
-                else { MessageBox.Show("Empty cells are not allowed"); }
+                else { MessageBox.Show("Check empty cells or input format"); }
             }
             catch
             {

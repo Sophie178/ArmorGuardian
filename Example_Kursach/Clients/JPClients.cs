@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 using Example_Kursach.Models;
+using System.Text.RegularExpressions;
 
 namespace Example_Kursach
 {
@@ -27,6 +28,7 @@ namespace Example_Kursach
         string _taxref = "TaxReferNumber";
         string _psrn = "PSRN";
         string _add = "Additional";
+        string phoneNumberFormat = @"\+7-9[0-9]{2}-[0-9]{3}-[0-9]{2}-[0-9]{2}";
 
         public JPClients()
         {
@@ -182,10 +184,12 @@ namespace Example_Kursach
         {
             try
             {
-                if (ValidateClients().ClientName != "" && ValidateClients().PhoneNumber != ""
-                    && ValidateClients().PSRN.ToString() != "" && ValidateClients().Address != "")
+                if (ValidateClients().ClientName != "" && Regex.IsMatch(ValidateClients().PhoneNumber, phoneNumberFormat)
+                    && ValidateClients().PSRN.Length == 13 && ValidateClients().TaxReferNumber.Length == 12 && 
+                    ValidateClients().TaxRegreasonPoint.Length == 9 &&
+                    ValidateClients().Address != "")
                     Updating(_table, ValidateClients());
-                else { MessageBox.Show("Empty cells are not allowed"); }
+                else { MessageBox.Show("Check empty cells or input format"); }
             }
             catch
             {
@@ -197,10 +201,12 @@ namespace Example_Kursach
         {
             try
             {
-                if (ValidateClients().ClientName != "" && ValidateClients().PhoneNumber != ""
-                    && ValidateClients().PSRN.ToString() != "" && ValidateClients().Address != "")
+                if (ValidateClients().ClientName != "" && Regex.IsMatch(ValidateClients().PhoneNumber, phoneNumberFormat)
+                    && ValidateClients().PSRN.Length == 13 && ValidateClients().TaxReferNumber.Length == 12 &&
+                    ValidateClients().TaxRegreasonPoint.Length == 9 &&
+                    ValidateClients().Address != "")
                     Adding(_table, ValidateClients());
-                else { MessageBox.Show("Empty cells are not allowed"); }
+                else { MessageBox.Show("Check empty cells or input format"); }
             }
             catch
             {

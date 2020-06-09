@@ -125,9 +125,9 @@
             this.DeleteButton.Font = new System.Drawing.Font("Perpetua Titling MT", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.DeleteButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(211)))), ((int)(((byte)(144)))));
             this.DeleteButton.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.DeleteButton.Location = new System.Drawing.Point(465, 756);
+            this.DeleteButton.Location = new System.Drawing.Point(465, 745);
             this.DeleteButton.Name = "DeleteButton";
-            this.DeleteButton.Size = new System.Drawing.Size(705, 53);
+            this.DeleteButton.Size = new System.Drawing.Size(705, 64);
             this.DeleteButton.TabIndex = 9;
             this.DeleteButton.Text = "Choose row to delete and press \"del\"";
             this.DeleteButton.UseVisualStyleBackColor = false;
@@ -141,9 +141,9 @@
             this.BackButton.Font = new System.Drawing.Font("Perpetua Titling MT", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BackButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(211)))), ((int)(((byte)(144)))));
             this.BackButton.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.BackButton.Location = new System.Drawing.Point(30, 756);
+            this.BackButton.Location = new System.Drawing.Point(30, 745);
             this.BackButton.Name = "BackButton";
-            this.BackButton.Size = new System.Drawing.Size(265, 53);
+            this.BackButton.Size = new System.Drawing.Size(265, 64);
             this.BackButton.TabIndex = 8;
             this.BackButton.Text = "Back";
             this.BackButton.UseVisualStyleBackColor = false;

@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.Gap = new System.Windows.Forms.Panel();
             this.NameLabel = new System.Windows.Forms.Label();
             this.LoginPanel = new System.Windows.Forms.Panel();
@@ -38,6 +38,7 @@
             this.AddButton = new System.Windows.Forms.Button();
             this.StaffGrid = new System.Windows.Forms.DataGridView();
             this.DepID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DeleteButton = new System.Windows.Forms.Button();
             this.Gap.SuspendLayout();
             this.LoginPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.StaffGrid)).BeginInit();
@@ -69,6 +70,7 @@
             // 
             // LoginPanel
             // 
+            this.LoginPanel.Controls.Add(this.DeleteButton);
             this.LoginPanel.Controls.Add(this.UpdateButton);
             this.LoginPanel.Controls.Add(this.TariffsLabel);
             this.LoginPanel.Controls.Add(this.BackButton);
@@ -123,9 +125,9 @@
             this.BackButton.Font = new System.Drawing.Font("Perpetua Titling MT", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BackButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(211)))), ((int)(((byte)(144)))));
             this.BackButton.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.BackButton.Location = new System.Drawing.Point(30, 756);
+            this.BackButton.Location = new System.Drawing.Point(42, 747);
             this.BackButton.Name = "BackButton";
-            this.BackButton.Size = new System.Drawing.Size(265, 53);
+            this.BackButton.Size = new System.Drawing.Size(265, 62);
             this.BackButton.TabIndex = 8;
             this.BackButton.Text = "Back";
             this.BackButton.UseVisualStyleBackColor = false;
@@ -154,24 +156,24 @@
             // 
             // StaffGrid
             // 
-            this.StaffGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.StaffGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.StaffGrid.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.StaffGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.StaffGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.DepID});
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Perpetua Titling MT", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.StaffGrid.DefaultCellStyle = dataGridViewCellStyle1;
-            this.StaffGrid.Location = new System.Drawing.Point(180, 151);
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Perpetua Titling MT", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.StaffGrid.DefaultCellStyle = dataGridViewCellStyle2;
+            this.StaffGrid.Location = new System.Drawing.Point(153, 163);
             this.StaffGrid.Name = "StaffGrid";
             this.StaffGrid.RowHeadersWidth = 82;
             this.StaffGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.StaffGrid.Size = new System.Drawing.Size(1280, 336);
+            this.StaffGrid.Size = new System.Drawing.Size(1325, 336);
             this.StaffGrid.TabIndex = 0;
             this.StaffGrid.CellBeginEdit += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.StaffGrid_CellBeginEdit);
             this.StaffGrid.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.StaffGrid_CellEndEdit);
@@ -181,9 +183,26 @@
             // DepID
             // 
             this.DepID.DataPropertyName = "DepID";
-            this.DepID.HeaderText = "DeaprtmentID";
+            this.DepID.HeaderText = "DepartmentID";
             this.DepID.Name = "DepID";
             this.DepID.ReadOnly = true;
+            this.DepID.Width = 289;
+            // 
+            // DeleteButton
+            // 
+            this.DeleteButton.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.DeleteButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.DeleteButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Black;
+            this.DeleteButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.DeleteButton.Font = new System.Drawing.Font("Perpetua Titling MT", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DeleteButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(211)))), ((int)(((byte)(144)))));
+            this.DeleteButton.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.DeleteButton.Location = new System.Drawing.Point(448, 747);
+            this.DeleteButton.Name = "DeleteButton";
+            this.DeleteButton.Size = new System.Drawing.Size(705, 62);
+            this.DeleteButton.TabIndex = 17;
+            this.DeleteButton.Text = "Choose row to delete and press \"del\"";
+            this.DeleteButton.UseVisualStyleBackColor = false;
             // 
             // DepForms
             // 
@@ -213,7 +232,8 @@
         private System.Windows.Forms.Button BackButton;
         private System.Windows.Forms.Button AddButton;
         private System.Windows.Forms.DataGridView StaffGrid;
-        private System.Windows.Forms.DataGridViewTextBoxColumn DepID;
         private System.Windows.Forms.Button UpdateButton;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DepID;
+        private System.Windows.Forms.Button DeleteButton;
     }
 }

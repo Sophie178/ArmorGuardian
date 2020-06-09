@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 using Example_Kursach.Models;
+using System.Text.RegularExpressions;
 
 namespace Example_Kursach
 {
@@ -29,6 +30,8 @@ namespace Example_Kursach
         string _addressS = "StockAddress";
         string _phNumberS = "PhoneNumber";
         string _office = "OfficeID";
+
+        string phoneNumberFormat = @"\+7-9[0-9]{2}-[0-9]{3}-[0-9]{2}-[0-9]{2}";
 
 
         public OfficesStocksForm()
@@ -110,9 +113,9 @@ namespace Example_Kursach
         {
             try
             {
-                if (ValidateStock() != null && ValidateStock().Address != "")
+                if (ValidateStock().Address != "" && Regex.IsMatch(ValidateStock().PhoneNumber, phoneNumberFormat))
                     UpdatingS(tableS, ValidateStock());
-                else { MessageBox.Show("Empty cells are not allowed"); }
+                else { MessageBox.Show("Check empty cells or input format"); }
             }
             catch
             {
@@ -124,9 +127,9 @@ namespace Example_Kursach
         {
             try
             {
-                if (ValidateStock() != null  &&  ValidateStock().Address != "")
+                if (ValidateStock().Address != "" && Regex.IsMatch(ValidateStock().PhoneNumber, phoneNumberFormat))
                     AddingS(tableS, ValidateStock());
-                else { MessageBox.Show("Empty cells are not allowed"); }
+                else { MessageBox.Show("Check empty cells or input format"); }
             }
             catch
             {
@@ -312,9 +315,9 @@ namespace Example_Kursach
         {
             try
             {
-                if (ValidateOffice() != null && ValidateOffice().Address != "")
+                if (Regex.IsMatch(ValidateOffice().PhoneNumber, phoneNumberFormat) && ValidateOffice().Address != "")
                     AddingO(tableO, ValidateOffice());
-                else { MessageBox.Show("Empty cells are not allowed"); }
+                else { MessageBox.Show("Check empty cells or input format"); }
             }
             catch
             {
@@ -326,9 +329,9 @@ namespace Example_Kursach
         {
             try
             {
-                if (ValidateOffice() != null && ValidateOffice().Address != "")
+                if (Regex.IsMatch(ValidateOffice().PhoneNumber, phoneNumberFormat) && ValidateOffice().Address != "")
                     UpdatingO(tableO, ValidateOffice());
-                else { MessageBox.Show("Empty cells are not allowed"); }
+                else { MessageBox.Show("Check empty cells or input format"); }
             }
             catch
             {

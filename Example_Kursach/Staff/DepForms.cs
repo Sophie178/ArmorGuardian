@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 using Example_Kursach.Models;
+using System.Text.RegularExpressions;
 
 namespace Example_Kursach
 {
@@ -24,6 +25,7 @@ namespace Example_Kursach
         string _phNumber = "PhoneNumber";
         string _office = "OfficeID";
         string _floor = "Floor";
+        string phoneNumberFormat = @"\+7-9[0-9]{2}-[0-9]{3}-[0-9]{2}-[0-9]{2}";
 
         public DepForms()
         {
@@ -227,9 +229,9 @@ namespace Example_Kursach
         {
             try
             {
-                if (ValidateDep().Name != "" && ValidateDep().PhoneNumber != "")
+                if (ValidateDep().Name != "" && Regex.IsMatch(ValidateDep().PhoneNumber, phoneNumberFormat))
                     Updating(_table, ValidateDep());
-                else { MessageBox.Show("Empty cells are not allowed"); }
+                else { MessageBox.Show("Check empty cells or input format"); }
             }
             catch
             {
@@ -241,9 +243,9 @@ namespace Example_Kursach
         {
             try
             {
-                if (ValidateDep().Name != "" && ValidateDep().PhoneNumber != "")
+                if (ValidateDep().Name != "" && Regex.IsMatch(ValidateDep().PhoneNumber, phoneNumberFormat))
                     Adding(_table, ValidateDep());
-                else { MessageBox.Show("Empty cells are not allowed"); }
+                else { MessageBox.Show("Check empty cells or input format"); }
             }
             catch
             {

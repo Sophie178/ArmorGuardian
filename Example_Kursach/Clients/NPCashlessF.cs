@@ -130,12 +130,12 @@ namespace Example_Kursach.Clients
             {
 
                 connection.Open();
-                string wID = PaymentGrid.CurrentRow.Cells["CashlesPID"].Value.ToString();
+                string wID = PaymentGrid.CurrentRow.Cells["CashlessPID"].Value.ToString();
 
                 string query2 = $"update {table} set  " +
-                    $" {_contract}  = {nPCashless.NPContractID}, {_paid} = '{nPCashless.PaidAmount}' " +
+                    $" {_contract}  = {nPCashless.NPContractID}, {_card} = '{nPCashless.CardNumber}', " +
                     $"{_paymentDT} = '{nPCashless.PaymentDT}', {_paid}  = '{nPCashless.PaidAmount}' " +
-                    $"where NPCashlessID = {wID} ";
+                    $"where NPPaymentID = {wID} ";
                 SqlCommand sqlCommand = new SqlCommand(query2, connection);
                 try
                 {
@@ -191,8 +191,9 @@ namespace Example_Kursach.Clients
         {
             try
             {
-
-                Updating(_table, ValidatePayment());
+                if(ValidatePayment().CardNumber.Length == 16)
+                    Updating(_table, ValidatePayment());
+                else { MessageBox.Show("Check input format"); }
             }
             catch
             {
@@ -204,7 +205,10 @@ namespace Example_Kursach.Clients
         {
             try
             {
-                Adding(_table, ValidatePayment());
+
+                if (ValidatePayment().CardNumber.Length == 16)
+                    Adding(_table, ValidatePayment());
+                else { MessageBox.Show("Check input format"); }
             }
             catch
             {

@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 using Example_Kursach.Models;
+using System.Text.RegularExpressions;
 
 namespace Example_Kursach
 {
@@ -24,6 +25,7 @@ namespace Example_Kursach
         string _phNumber = "PhoneNumber";
         string _office = "OfficeID";
         string _floor = "Floor";
+        string phoneNumberFormat = @"\+7-9[0-9]{2}-[0-9]{3}-[0-9]{2}-[0-9]{2}";
 
         public UnitForm()
         {
@@ -136,17 +138,8 @@ namespace Example_Kursach
             int office = Convert.ToInt32(StaffGrid.CurrentRow.Cells[_office].Value.ToString());
             int floor = Convert.ToInt32(StaffGrid.CurrentRow.Cells[_floor].Value.ToString());
 
-            if (name != null && phNumber != null)
-            {
-
-                UnitClass unitClass = new UnitClass(name, phNumber, office, floor);
-                return unitClass;
-            }
-            else
-            {
-                MessageBox.Show("Invalid Format");
-                return null;
-            }
+            UnitClass unitClass = new UnitClass(name, phNumber, office, floor);
+            return unitClass;
 
         }
         private void Updating(string table, UnitClass unitClass)
@@ -227,9 +220,9 @@ namespace Example_Kursach
         {
             try
             {
-                if (ValidateU() != null && ValidateU().Name != "" && ValidateU().PhoneNumber != "")
+                if (ValidateU().Name != "" && Regex.IsMatch(ValidateU().PhoneNumber, phoneNumberFormat))
                     Updating(_table, ValidateU());
-                else { MessageBox.Show("Empty cells are not allowed"); }
+                else { MessageBox.Show("Check empty cells or input format"); }
             }
             catch
             {
@@ -241,9 +234,9 @@ namespace Example_Kursach
         {
             try
             {
-                if (ValidateU() != null && ValidateU().Name != "" && ValidateU().PhoneNumber != "")
+                if (ValidateU().Name != "" && Regex.IsMatch(ValidateU().PhoneNumber, phoneNumberFormat))
                     Adding(_table, ValidateU());
-                else { MessageBox.Show("Empty cells are not allowed"); }
+                else { MessageBox.Show("Check empty cells or input format"); }
             }
             catch
             {

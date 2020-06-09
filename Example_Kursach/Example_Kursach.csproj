@@ -187,7 +187,6 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="repo\BaseRepository.cs" />
     <Compile Include="Staff\SecurityGuards.cs">
       <SubType>Form</SubType>
     </Compile>

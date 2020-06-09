@@ -27,11 +27,10 @@ namespace Example_Kursach
         {
             string query1 = "select SecurityWorkers.SWorkerID, " +
                 "[dbo].[Equipment].EquipID, " +
-                "swe.DateReceived, " +
+                "swe.Received, " +
                 "[dbo].[Equipment].[Name], " +
                 "[dbo].[Equipment].Model, " +
-                "[dbo].[Equipment].[Description], " +
-                "swe.Returned from SecurityWorkers " +
+                "[dbo].[Equipment].[Description] from SecurityWorkers " +
                 "inner join[dbo].[SecurityWorkers_Equipment] as swe " +
                 "on SecurityWorkers.SWorkerID = swe.SWorkerID" +
                 " inner join[dbo].[Equipment] " +
@@ -41,9 +40,8 @@ namespace Example_Kursach
             string query2 = "select SecurityWorkers.SWorkerID," +
                 " [dbo].[Weapon].WeaponID, " +
                 "sww.Received, " +
-                "[dbo].[Weapon].WName as model, " +
-                "[dbo].[Weapon].[Description], " +
-                "sww.Returned from SecurityWorkers " +
+                "[dbo].[Weapon].Model, " +
+                "[dbo].[Weapon].[Description]  from SecurityWorkers " +
                 "inner join[dbo].[SecurityWorkers_Weapon] as sww" +
                 " on SecurityWorkers.SWorkerID = sww.SWorkerID" +
                 " inner join[dbo].[Weapon]" +
@@ -53,9 +51,7 @@ namespace Example_Kursach
             string query3 = "select SecurityWorkers.SWorkerID, " +
                 "[dbo].[Transport].TransportID, " +
                 "swt.Received ,[dbo].[Transport].Model, " +
-                "[dbo].[Transport].CarBodyStyle, " +
-                "swt.Returned " +
-                "from SecurityWorkers " +
+                "[dbo].[Transport].CarBodyStyle from SecurityWorkers " +
                 "inner join[dbo].[Transport_SecurityWorkers] as swt " +
                 "on SecurityWorkers.SWorkerID = swt.SWorkerID " +
                 "inner join[dbo].[Transport] " +

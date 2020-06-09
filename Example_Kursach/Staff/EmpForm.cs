@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 using Example_Kursach.Models;
+using System.Text.RegularExpressions;
 
 namespace Example_Kursach
 {
@@ -30,6 +31,7 @@ namespace Example_Kursach
         string _room = "Room";
         string _dep = "DepID";
         string _position = "Position";
+        string phoneNumberFormat = @"\+7-9[0-9]{2}-[0-9]{3}-[0-9]{2}-[0-9]{2}";
 
         public EmpForm()
         {
@@ -240,9 +242,10 @@ namespace Example_Kursach
         {
             try
             {
-                if (ValidateEmployee().Name != "" && ValidateEmployee().PhoneNumber != "" && ValidateEmployee().Surname != "")
+                if (ValidateEmployee().Name != "" && Regex.IsMatch(ValidateEmployee().PhoneNumber, phoneNumberFormat) 
+                    && ValidateEmployee().Surname != "" && ValidateEmployee().Address != "" && ValidateEmployee().Position != "")
                     Updating(_table, ValidateEmployee());
-                else { MessageBox.Show("Empty cells are not allowed"); }
+                else { MessageBox.Show("Check empty cells or input format"); }
             }
             catch
             {
@@ -254,9 +257,10 @@ namespace Example_Kursach
         {
             try
             {
-                if (ValidateEmployee().Name != "" && ValidateEmployee().PhoneNumber != "" && ValidateEmployee().Surname != "")
+                if (ValidateEmployee().Name != "" && Regex.IsMatch(ValidateEmployee().PhoneNumber, phoneNumberFormat) 
+                    && ValidateEmployee().Surname != "" && ValidateEmployee().Address != "" && ValidateEmployee().Position != "")
                     Adding(_table, ValidateEmployee());
-                else { MessageBox.Show("Empty cells are not allowed"); }
+                else { MessageBox.Show("Check empty cells or input format"); }
             }
             catch
             {
