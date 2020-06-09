@@ -107,5 +107,6 @@ namespace Example_Kursach
         {
             BackButton.ForeColor = Color.FromArgb(234, 211, 144);
         }
+
     }
 }

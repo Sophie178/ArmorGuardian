@@ -114,7 +114,6 @@ namespace Example_Kursach
                     try
                     {
                         sqlCommand.ExecuteNonQuery();
-                        
                         connection.Close();
                     }
                     catch
