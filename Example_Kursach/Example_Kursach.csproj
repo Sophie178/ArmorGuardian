@@ -46,23 +46,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Clients\JPPaymentF.cs">
+    <Compile Include="Clients\JPCashlessF.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Clients\JPPaymentF.Designer.cs">
-      <DependentUpon>JPPaymentF.cs</DependentUpon>
+    <Compile Include="Clients\JPCashlessF.Designer.cs">
+      <DependentUpon>JPCashlessF.cs</DependentUpon>
     </Compile>
     <Compile Include="Clients\NPCashlessF.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Clients\NPCashlessF.Designer.cs">
       <DependentUpon>NPCashlessF.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Clients\NPPaymentF.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Clients\NPPaymentF.Designer.cs">
-      <DependentUpon>NPPaymentF.cs</DependentUpon>
     </Compile>
     <Compile Include="FormsServices\AllTariffsForm.cs">
       <SubType>Form</SubType>
@@ -96,12 +90,15 @@
     </Compile>
     <Compile Include="Models\All_SWorker.cs" />
     <Compile Include="Models\CargoClass.cs" />
+    <Compile Include="Models\ContractClass.cs" />
     <Compile Include="Models\DBUsers.cs" />
     <Compile Include="Models\DepClass.cs" />
     <Compile Include="Models\Employee.cs" />
     <Compile Include="Models\Guard.cs" />
     <Compile Include="Models\Contract_W.cs" />
+    <Compile Include="Models\JPCashless.cs" />
     <Compile Include="Models\JPClients.cs" />
+    <Compile Include="Models\NPCashless.cs" />
     <Compile Include="Models\NPClientClass.cs" />
     <Compile Include="Models\UnitClass.cs" />
     <Compile Include="Models\All_Stock.cs" />
@@ -245,14 +242,11 @@
     <Compile Include="Staff\UnitForm.Designer.cs">
       <DependentUpon>UnitForm.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Clients\JPPaymentF.resx">
-      <DependentUpon>JPPaymentF.cs</DependentUpon>
+    <EmbeddedResource Include="Clients\JPCashlessF.resx">
+      <DependentUpon>JPCashlessF.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Clients\NPCashlessF.resx">
       <DependentUpon>NPCashlessF.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Clients\NPPaymentF.resx">
-      <DependentUpon>NPPaymentF.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormsServices\AllTariffsForm.resx">
       <DependentUpon>AllTariffsForm.cs</DependentUpon>

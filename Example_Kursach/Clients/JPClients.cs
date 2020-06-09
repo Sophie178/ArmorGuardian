@@ -154,7 +154,8 @@ namespace Example_Kursach
 
 
                 string query2 = $"insert into {table} values ( " +
-                     $" '{jPClientsClass.ClientName}', {jPClientsClass.TaxRegreasonPoint}, {jPClientsClass.TaxReferNumber}, '{jPClientsClass.Address}' , {jPClientsClass.PSRN}, " +
+                     $" '{jPClientsClass.ClientName}', '{jPClientsClass.TaxRegreasonPoint}', " +
+                     $" '{jPClientsClass.TaxReferNumber}' , '{jPClientsClass.Address}' , '{jPClientsClass.PSRN}', " +
                     $" '{jPClientsClass.PhoneNumber}', '{jPClientsClass.Additional}') ";
 
                 SqlCommand sqlCommand = new SqlCommand(query2, connection);
@@ -181,7 +182,7 @@ namespace Example_Kursach
         {
             try
             {
-                if (ValidateClients() != null && ValidateClients().ClientName != "" && ValidateClients().PhoneNumber != ""
+                if (ValidateClients().ClientName != "" && ValidateClients().PhoneNumber != ""
                     && ValidateClients().PSRN.ToString() != "" && ValidateClients().Address != "")
                     Updating(_table, ValidateClients());
                 else { MessageBox.Show("Empty cells are not allowed"); }
@@ -196,7 +197,7 @@ namespace Example_Kursach
         {
             try
             {
-                if (ValidateClients() != null && ValidateClients().ClientName != "" && ValidateClients().PhoneNumber != ""
+                if (ValidateClients().ClientName != "" && ValidateClients().PhoneNumber != ""
                     && ValidateClients().PSRN.ToString() != "" && ValidateClients().Address != "")
                     Adding(_table, ValidateClients());
                 else { MessageBox.Show("Empty cells are not allowed"); }

@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 using Example_Kursach.Clients;
+using Example_Kursach.Models;
 
 namespace Example_Kursach
 {
@@ -18,6 +19,16 @@ namespace Example_Kursach
         SqlConnection connection = new SqlConnection(@"Data Source=PERIIT\MY_INSTANCE;Initial Catalog=kursach;Integrated Security=True");
 
         string query = "select * from JPContract";
+
+        string _table = "JPContract";
+        string _client = "JPClientID";
+        string _start = "Start";
+        string _end = "End";
+        string _dateOfC = "DateOfContract";
+        string _active = "Active";
+        string _total = "TotalCost";
+        string _cash = "CashPayment";
+        string _tariff = "TariffID";
 
         public JPContracts()
         {
@@ -61,9 +72,7 @@ namespace Example_Kursach
 
         private void InfoButton_Click(object sender, EventArgs e)
         {
-            //this.Hide();
-
-            JPPaymentF jPPaymentF = new JPPaymentF();
+            JPCashlessF jPPaymentF = new JPCashlessF();
             jPPaymentF.Show();
 
         }
@@ -97,6 +106,150 @@ namespace Example_Kursach
         {
             e.Cancel = true;
             MessageBox.Show("Invalid format");
+        }
+
+        private void AddButton_MouseEnter(object sender, EventArgs e)
+        {
+            AddButton.ForeColor = Color.FromArgb(204, 32, 20);
+        }
+
+        private void AddButton_MouseLeave(object sender, EventArgs e)
+        {
+            AddButton.ForeColor = Color.FromArgb(234, 211, 144);
+        }
+
+        private void UpdateButton_MouseEnter(object sender, EventArgs e)
+        {
+            UpdateButton.ForeColor = Color.FromArgb(204, 32, 20);
+        }
+
+        private void UpdateButton_MouseLeave(object sender, EventArgs e)
+        {
+            UpdateButton.ForeColor = Color.FromArgb(234, 211, 144);
+        }
+
+        private ContractClass ValidateContract()
+        {
+            DateTime end = Convert.ToDateTime(ContractGrid.CurrentRow.Cells[_end].Value.ToString());
+            DateTime date = Convert.ToDateTime(ContractGrid.CurrentRow.Cells[_dateOfC].Value.ToString());
+            DateTime start = Convert.ToDateTime(ContractGrid.CurrentRow.Cells[_start].Value.ToString());
+            int client = Convert.ToInt32(ContractGrid.CurrentRow.Cells[_client].Value.ToString());
+            int tariff = Convert.ToInt32(ContractGrid.CurrentRow.Cells[_tariff].Value.ToString());
+            string total = ContractGrid.CurrentRow.Cells[_total].Value.ToString();
+            int cash;
+            int active;
+
+            if (ContractGrid.CurrentRow.Cells[_active].Value.ToString() == "")
+            {
+                active = 0;
+            }
+            else
+            {
+                active = 1;
+            }
+
+            if (ContractGrid.CurrentRow.Cells[_cash].Value.ToString() == "")
+            {
+                cash = 0;
+            }
+            else
+            {
+                cash = 1;
+            }
+
+            ContractClass contractClass = new ContractClass(client, start, end, date, active, total, cash, tariff);
+            return contractClass;
+        }
+        private void Updating(string table, ContractClass contractClass)
+        {
+            if (MessageBox.Show("Edit this record?", $"{table} table", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+
+                connection.Open();
+                string wID = ContractGrid.CurrentRow.Cells["JPContractID"].Value.ToString();
+
+                string query2 = $"update {table} set  " +
+                    $" {_client}  = {contractClass.ClientID}, {_start} = '{contractClass.Start.Date.ToString("d")}', " +
+                    $" [{_end}] = '{contractClass.End.Date.ToString("d")}', {_dateOfC} = '{contractClass.DateOfContract.Date.ToString("d")}', " +
+                    $"{_active} = {contractClass.Active}, {_total}  = '{contractClass.TotalCost}', {_cash} = {contractClass.CashPayment} , " +
+                    $"{_tariff} = {contractClass.TariffID} " +
+                    $"where JPContractID = {wID} ";
+                SqlCommand sqlCommand = new SqlCommand(query2, connection);
+                try
+                {
+                    sqlCommand.ExecuteNonQuery();
+                    connection.Close();
+
+                    LoadContracts();
+                }
+                catch
+                {
+                    MessageBox.Show(" Error ");
+                    connection.Close();
+                }
+
+            }
+            else
+            {
+                connection.Close();
+            }
+        }
+
+        private void Adding(string table, ContractClass contractClass)
+        {
+            if (MessageBox.Show("Add this record?", $"{table} table", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+
+                connection.Open();
+
+
+                string query2 = $"insert into {table} values ( " +
+                     $" {contractClass.ClientID}, '{contractClass.Start.Date.ToString("d")}', '{contractClass.End.Date.ToString("d")}', " +
+                     $" '{contractClass.DateOfContract.Date.ToString("d")}' , {contractClass.Active}, " +
+                    $" '{contractClass.TotalCost}', {contractClass.CashPayment}, {contractClass.TariffID} )";
+
+                SqlCommand sqlCommand = new SqlCommand(query2, connection);
+                try
+                {
+                    sqlCommand.ExecuteNonQuery();
+                    connection.Close();
+                    LoadContracts();
+                }
+                catch
+                {
+                    MessageBox.Show(" Error ");
+                    connection.Close();
+                }
+
+            }
+            else
+            {
+                connection.Close();
+            }
+        }
+        private void UpdateButton_Click(object sender, EventArgs e)
+        {
+            try
+            {
+
+                Updating(_table, ValidateContract());
+            }
+            catch
+            {
+                MessageBox.Show("Invalid format");
+            }
+        }
+
+        private void AddButton_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Adding(_table, ValidateContract());
+            }
+            catch
+            {
+                MessageBox.Show("Invalid format");
+            }
         }
     }
 }

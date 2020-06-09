@@ -1,6 +1,6 @@
 ﻿namespace Example_Kursach.Clients
 {
-    partial class NPPaymentF
+    partial class JPCashlessF
     {
         /// <summary>
         /// Required designer variable.
@@ -55,8 +55,8 @@
             this.Gap.Dock = System.Windows.Forms.DockStyle.Fill;
             this.Gap.Location = new System.Drawing.Point(0, 0);
             this.Gap.Name = "Gap";
-            this.Gap.Size = new System.Drawing.Size(1635, 916);
-            this.Gap.TabIndex = 8;
+            this.Gap.Size = new System.Drawing.Size(1633, 918);
+            this.Gap.TabIndex = 7;
             // 
             // MinimizeButton
             // 
@@ -96,9 +96,9 @@
             this.TariffsLabel.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.TariffsLabel.Location = new System.Drawing.Point(814, 13);
             this.TariffsLabel.Name = "TariffsLabel";
-            this.TariffsLabel.Size = new System.Drawing.Size(625, 34);
+            this.TariffsLabel.Size = new System.Drawing.Size(611, 34);
             this.TariffsLabel.TabIndex = 9;
-            this.TariffsLabel.Text = "np contracts cashless payment info";
+            this.TariffsLabel.Text = "jp contracts cashless payment info";
             this.TariffsLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // NameLabel
@@ -121,11 +121,13 @@
             this.LoginPanel.Controls.Add(this.PaymentGrid);
             this.LoginPanel.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.LoginPanel.Font = new System.Drawing.Font("Perpetua Titling MT", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LoginPanel.Location = new System.Drawing.Point(0, 63);
+            this.LoginPanel.Location = new System.Drawing.Point(0, 65);
             this.LoginPanel.Margin = new System.Windows.Forms.Padding(2);
             this.LoginPanel.Name = "LoginPanel";
-            this.LoginPanel.Size = new System.Drawing.Size(1635, 853);
+            this.LoginPanel.Size = new System.Drawing.Size(1633, 853);
             this.LoginPanel.TabIndex = 2;
+            this.LoginPanel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.LoginPanel_MouseDown);
+            this.LoginPanel.MouseMove += new System.Windows.Forms.MouseEventHandler(this.LoginPanel_MouseMove);
             // 
             // UpdateButton
             // 
@@ -142,6 +144,9 @@
             this.UpdateButton.TabIndex = 8;
             this.UpdateButton.Text = "update record";
             this.UpdateButton.UseVisualStyleBackColor = false;
+            this.UpdateButton.Click += new System.EventHandler(this.UpdateButton_Click);
+            this.UpdateButton.MouseEnter += new System.EventHandler(this.UpdateButton_MouseEnter);
+            this.UpdateButton.MouseLeave += new System.EventHandler(this.UpdateButton_MouseLeave);
             // 
             // AddButton
             // 
@@ -152,16 +157,19 @@
             this.AddButton.Font = new System.Drawing.Font("Perpetua Titling MT", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.AddButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(211)))), ((int)(((byte)(144)))));
             this.AddButton.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.AddButton.Location = new System.Drawing.Point(1337, 756);
+            this.AddButton.Location = new System.Drawing.Point(1271, 756);
             this.AddButton.Name = "AddButton";
-            this.AddButton.Size = new System.Drawing.Size(265, 53);
+            this.AddButton.Size = new System.Drawing.Size(331, 53);
             this.AddButton.TabIndex = 6;
             this.AddButton.Text = "Add record";
             this.AddButton.UseVisualStyleBackColor = false;
             this.AddButton.Click += new System.EventHandler(this.AddButton_Click);
+            this.AddButton.MouseEnter += new System.EventHandler(this.AddButton_MouseEnter);
+            this.AddButton.MouseLeave += new System.EventHandler(this.AddButton_MouseLeave);
             // 
             // PaymentGrid
             // 
+            this.PaymentGrid.AllowUserToDeleteRows = false;
             this.PaymentGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.PaymentGrid.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.PaymentGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -177,13 +185,11 @@
             this.PaymentGrid.DefaultCellStyle = dataGridViewCellStyle1;
             this.PaymentGrid.Location = new System.Drawing.Point(30, 97);
             this.PaymentGrid.Name = "PaymentGrid";
-            this.PaymentGrid.ReadOnly = true;
             this.PaymentGrid.RowHeadersWidth = 82;
             this.PaymentGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.PaymentGrid.Size = new System.Drawing.Size(1572, 454);
             this.PaymentGrid.TabIndex = 0;
-            this.PaymentGrid.MouseDown += new System.Windows.Forms.MouseEventHandler(this.PaymentGrid_MouseDown);
-            this.PaymentGrid.MouseMove += new System.Windows.Forms.MouseEventHandler(this.PaymentGrid_MouseMove);
+            this.PaymentGrid.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.PaymentGrid_DataError);
             // 
             // CashlessPID
             // 
@@ -193,14 +199,16 @@
             this.CashlessPID.ReadOnly = true;
             this.CashlessPID.Width = 241;
             // 
-            // NPPaymentF
+            // JPCashlessF
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1635, 916);
+            this.ClientSize = new System.Drawing.Size(1633, 918);
             this.Controls.Add(this.Gap);
-            this.Name = "NPPaymentF";
-            this.Text = "NPPaymentF";
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Name = "JPCashlessF";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "JPPaymentF";
             this.Gap.ResumeLayout(false);
             this.Gap.PerformLayout();
             this.LoginPanel.ResumeLayout(false);
@@ -212,14 +220,14 @@
         #endregion
 
         private System.Windows.Forms.Panel Gap;
-        private System.Windows.Forms.Label MinimizeButton;
-        private System.Windows.Forms.Label CloseButton;
         private System.Windows.Forms.Label TariffsLabel;
         private System.Windows.Forms.Label NameLabel;
         private System.Windows.Forms.Panel LoginPanel;
         private System.Windows.Forms.Button UpdateButton;
         private System.Windows.Forms.Button AddButton;
         private System.Windows.Forms.DataGridView PaymentGrid;
+        private System.Windows.Forms.Label CloseButton;
+        private System.Windows.Forms.Label MinimizeButton;
         private System.Windows.Forms.DataGridViewTextBoxColumn CashlessPID;
     }
 }

@@ -227,7 +227,7 @@ namespace Example_Kursach
         {
             try
             {
-                if (ValidateDep() != null && ValidateDep().Name != "" && ValidateDep().PhoneNumber != "")
+                if (ValidateDep().Name != "" && ValidateDep().PhoneNumber != "")
                     Updating(_table, ValidateDep());
                 else { MessageBox.Show("Empty cells are not allowed"); }
             }
@@ -241,7 +241,7 @@ namespace Example_Kursach
         {
             try
             {
-                if (ValidateDep() != null && ValidateDep().Name != "" && ValidateDep().PhoneNumber != "")
+                if (ValidateDep().Name != "" && ValidateDep().PhoneNumber != "")
                     Adding(_table, ValidateDep());
                 else { MessageBox.Show("Empty cells are not allowed"); }
             }

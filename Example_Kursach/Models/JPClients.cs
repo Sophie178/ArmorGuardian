@@ -25,6 +25,7 @@ namespace Example_Kursach.Models
             Address = address;
             PSRN = psrn;
             PhoneNumber = phone;
+            Additional = add;
         }
     }
 }

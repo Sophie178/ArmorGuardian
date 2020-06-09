@@ -34,6 +34,11 @@ namespace Example_Kursach
         {
             InitializeComponent();
 
+            LoadClients();
+        }
+
+        private void LoadClients()
+        {
             SqlCommand cmd = new SqlCommand(query, connection);
             connection.Open();
             cmd.ExecuteNonQuery();
@@ -126,14 +131,9 @@ namespace Example_Kursach
                 try
                 {
                     sqlCommand.ExecuteNonQuery();
-                    SqlCommand cmd = new SqlCommand(query, connection);
-                    cmd.ExecuteNonQuery();
-                    DataTable tariffTable = new DataTable();
-                    SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(cmd);
-                    sqlDataAdapter.Fill(tariffTable);
-
-                    ClientsGrid.DataSource = tariffTable;
                     connection.Close();
+
+                    LoadClients();
                 }
                 catch
                 {
@@ -164,14 +164,8 @@ namespace Example_Kursach
                 try
                 {
                     sqlCommand.ExecuteNonQuery();
-                    SqlCommand cmd = new SqlCommand(query, connection);
-                    cmd.ExecuteNonQuery();
-                    DataTable Table = new DataTable();
-                    SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(cmd);
-                    sqlDataAdapter.Fill(Table);
-
-                    ClientsGrid.DataSource = Table;
                     connection.Close();
+                    LoadClients();
                 }
                 catch
                 {

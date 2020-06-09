@@ -12,26 +12,27 @@ using Example_Kursach.Models;
 
 namespace Example_Kursach.Clients
 {
-    public partial class NPCashlessF : Form
+    public partial class JPCashlessF : Form
     {
         SqlConnection connection = new SqlConnection(@"Data Source=PERIIT\MY_INSTANCE;Initial Catalog=kursach;Integrated Security=True");
 
-        string query = "select * from NPCashlessPayment";
+        string query = "select * from JPCashlessPayment";
 
-
-        string _table = "NPCashlessPayment";
-        string _card = "CardNumber";
-        string _paymentDT = "PaymentDT";
-        string _contract = "NPContractID";
+        string _table = "JPCashlessPayment";
+        string _contract = "JPContractID";
+        string _bic = "BIC";
+        string _tranAcc = "TransactAccount";
+        string _corrAcc = "CorrespondentAcc";
+        string _paymentDT = "PaymentDateTime";
         string _paid = "PaidAmount";
 
-        public NPCashlessF()
+
+        public JPCashlessF()
         {
             InitializeComponent();
-
             LoadPayment();
-        }
 
+        }
         private void LoadPayment()
         {
             SqlCommand cmd = new SqlCommand(query, connection);
@@ -45,7 +46,6 @@ namespace Example_Kursach.Clients
 
             connection.Close();
         }
-
 
         private void CloseButton_Click(object sender, EventArgs e)
         {
@@ -90,8 +90,7 @@ namespace Example_Kursach.Clients
         private void LoginPanel_MouseDown(object sender, MouseEventArgs e)
         {
             lastPoint = new Point(e.X, e.Y);
-        }
-
+        } 
 
         private void AddButton_MouseEnter(object sender, EventArgs e)
         {
@@ -113,18 +112,19 @@ namespace Example_Kursach.Clients
             UpdateButton.ForeColor = Color.FromArgb(234, 211, 144);
         }
 
-        private NPCashless ValidatePayment()
+        private JPCashless ValidatePayment()
         {
             DateTime date = Convert.ToDateTime(PaymentGrid.CurrentRow.Cells[_paymentDT].Value.ToString());
             int contract = Convert.ToInt32(PaymentGrid.CurrentRow.Cells[_contract].Value.ToString());
-            string card = PaymentGrid.CurrentRow.Cells[_card].Value.ToString();
+            string bic = PaymentGrid.CurrentRow.Cells[_bic].Value.ToString();
+            string tranAcc = PaymentGrid.CurrentRow.Cells[_tranAcc].Value.ToString();
+            string corrAcc = PaymentGrid.CurrentRow.Cells[_corrAcc].Value.ToString();
             string paid = PaymentGrid.CurrentRow.Cells[_paid].Value.ToString();
 
-
-            NPCashless nPCashless = new NPCashless(card, date, contract, paid);
-            return nPCashless;
+            JPCashless jPCashless = new JPCashless(contract, bic, tranAcc, corrAcc, date, paid);
+            return jPCashless;
         }
-        private void Updating(string table, NPCashless nPCashless)
+        private void Updating(string table, JPCashless jPCashless)
         {
             if (MessageBox.Show("Edit this record?", $"{table} table", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
@@ -133,9 +133,10 @@ namespace Example_Kursach.Clients
                 string wID = PaymentGrid.CurrentRow.Cells["CashlesPID"].Value.ToString();
 
                 string query2 = $"update {table} set  " +
-                    $" {_contract}  = {nPCashless.NPContractID}, {_paid} = '{nPCashless.PaidAmount}' " +
-                    $"{_paymentDT} = '{nPCashless.PaymentDT}', {_paid}  = '{nPCashless.PaidAmount}' " +
-                    $"where NPCashlessID = {wID} ";
+                    $" {_contract}  = {jPCashless.JPContract}, {_bic} = '{jPCashless.BIC}', " +
+                    $"{_tranAcc} = '{jPCashless.TranAcc}', {_corrAcc} = '{jPCashless.CorrAcc}', " +
+                    $"{_paymentDT} = '{jPCashless.PaymentDT}', {_paid}  = '{jPCashless.PaidAmount}' " +
+                    $"where CashlesPID = {wID} ";
                 SqlCommand sqlCommand = new SqlCommand(query2, connection);
                 try
                 {
@@ -157,7 +158,7 @@ namespace Example_Kursach.Clients
             }
         }
 
-        private void Adding(string table, NPCashless nPCashless)
+        private void Adding(string table, JPCashless jPCashless)
         {
             if (MessageBox.Show("Add this record?", $"{table} table", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
@@ -166,7 +167,8 @@ namespace Example_Kursach.Clients
 
 
                 string query2 = $"insert into {table} values ( " +
-                     $"  '{nPCashless.CardNumber}' , '{nPCashless.PaymentDT}', {nPCashless.NPContractID}, '{nPCashless.PaidAmount}' )";
+                     $" {jPCashless.JPContract}, '{jPCashless.BIC}', '{jPCashless.TranAcc}', " +
+                     $" '{jPCashless.CorrAcc}' , '{jPCashless.PaymentDT}', '{jPCashless.PaidAmount}' )";
 
                 SqlCommand sqlCommand = new SqlCommand(query2, connection);
                 try

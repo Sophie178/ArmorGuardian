@@ -157,9 +157,9 @@
             this.AddButton.Font = new System.Drawing.Font("Perpetua Titling MT", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.AddButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(211)))), ((int)(((byte)(144)))));
             this.AddButton.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.AddButton.Location = new System.Drawing.Point(1337, 756);
+            this.AddButton.Location = new System.Drawing.Point(1271, 756);
             this.AddButton.Name = "AddButton";
-            this.AddButton.Size = new System.Drawing.Size(265, 53);
+            this.AddButton.Size = new System.Drawing.Size(331, 53);
             this.AddButton.TabIndex = 6;
             this.AddButton.Text = "Add record";
             this.AddButton.UseVisualStyleBackColor = false;
@@ -169,6 +169,7 @@
             // 
             // PaymentGrid
             // 
+            this.PaymentGrid.AllowUserToDeleteRows = false;
             this.PaymentGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.PaymentGrid.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.PaymentGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -184,11 +185,11 @@
             this.PaymentGrid.DefaultCellStyle = dataGridViewCellStyle1;
             this.PaymentGrid.Location = new System.Drawing.Point(30, 97);
             this.PaymentGrid.Name = "PaymentGrid";
-            this.PaymentGrid.ReadOnly = true;
             this.PaymentGrid.RowHeadersWidth = 82;
             this.PaymentGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.PaymentGrid.Size = new System.Drawing.Size(1572, 454);
             this.PaymentGrid.TabIndex = 0;
+            this.PaymentGrid.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.PaymentGrid_DataError);
             // 
             // CashlessPID
             // 
