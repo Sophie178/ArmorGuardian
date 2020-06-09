@@ -92,5 +92,11 @@ namespace Example_Kursach
         {
             lastPoint = new Point(e.X, e.Y);
         }
+
+        private void ContractGrid_DataError(object sender, DataGridViewDataErrorEventArgs e)
+        {
+            e.Cancel = true;
+            MessageBox.Show("Invalid format");
+        }
     }
 }

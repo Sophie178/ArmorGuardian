@@ -281,5 +281,11 @@ namespace Example_Kursach
         {
             AddButton.ForeColor = Color.FromArgb(234, 211, 144);
         }
+
+        private void TransportGrid_DataError(object sender, DataGridViewDataErrorEventArgs e)
+        {
+            e.Cancel = true;
+            MessageBox.Show("Invalid format");
+        }
     }
 }

@@ -35,15 +35,15 @@
             this.TariffsLabel = new System.Windows.Forms.Label();
             this.NameLabel = new System.Windows.Forms.Label();
             this.LoginPanel = new System.Windows.Forms.Panel();
+            this.AddWeaponButton = new System.Windows.Forms.Button();
+            this.UpdateWeapButton = new System.Windows.Forms.Button();
+            this.UpdateButton = new System.Windows.Forms.Button();
             this.DeleteButton = new System.Windows.Forms.Button();
             this.WeaponGrid = new System.Windows.Forms.DataGridView();
+            this.WeaponID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.BackButton = new System.Windows.Forms.Button();
             this.AddButton = new System.Windows.Forms.Button();
             this.EqGrid = new System.Windows.Forms.DataGridView();
-            this.UpdateButton = new System.Windows.Forms.Button();
-            this.UpdateWeapButton = new System.Windows.Forms.Button();
-            this.AddWeaponButton = new System.Windows.Forms.Button();
-            this.WeaponID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.EquipID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Gap.SuspendLayout();
             this.LoginPanel.SuspendLayout();
@@ -108,6 +108,63 @@
             this.LoginPanel.Size = new System.Drawing.Size(1989, 1155);
             this.LoginPanel.TabIndex = 2;
             // 
+            // AddWeaponButton
+            // 
+            this.AddWeaponButton.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.AddWeaponButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.AddWeaponButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Black;
+            this.AddWeaponButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.AddWeaponButton.Font = new System.Drawing.Font("Perpetua Titling MT", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.AddWeaponButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(211)))), ((int)(((byte)(144)))));
+            this.AddWeaponButton.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.AddWeaponButton.Location = new System.Drawing.Point(1445, 884);
+            this.AddWeaponButton.Name = "AddWeaponButton";
+            this.AddWeaponButton.Size = new System.Drawing.Size(439, 53);
+            this.AddWeaponButton.TabIndex = 17;
+            this.AddWeaponButton.Text = "Add weapon record";
+            this.AddWeaponButton.UseVisualStyleBackColor = false;
+            this.AddWeaponButton.Click += new System.EventHandler(this.AddWeaponButton_Click);
+            this.AddWeaponButton.MouseEnter += new System.EventHandler(this.AddWeaponButton_MouseEnter);
+            this.AddWeaponButton.MouseLeave += new System.EventHandler(this.AddWeaponButton_MouseLeave);
+            // 
+            // UpdateWeapButton
+            // 
+            this.UpdateWeapButton.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.UpdateWeapButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.UpdateWeapButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Black;
+            this.UpdateWeapButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.UpdateWeapButton.Font = new System.Drawing.Font("Perpetua Titling MT", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.UpdateWeapButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(211)))), ((int)(((byte)(144)))));
+            this.UpdateWeapButton.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.UpdateWeapButton.Location = new System.Drawing.Point(1445, 643);
+            this.UpdateWeapButton.Name = "UpdateWeapButton";
+            this.UpdateWeapButton.Size = new System.Drawing.Size(439, 53);
+            this.UpdateWeapButton.TabIndex = 16;
+            this.UpdateWeapButton.Text = "update weapon record";
+            this.UpdateWeapButton.UseVisualStyleBackColor = false;
+            this.UpdateWeapButton.Click += new System.EventHandler(this.UpdateWeapButton_Click);
+            this.UpdateWeapButton.MouseEnter += new System.EventHandler(this.UpdateWeapButton_MouseEnter);
+            this.UpdateWeapButton.MouseLeave += new System.EventHandler(this.UpdateWeapButton_MouseLeave);
+            // 
+            // UpdateButton
+            // 
+            this.UpdateButton.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.UpdateButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.UpdateButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Black;
+            this.UpdateButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.UpdateButton.Font = new System.Drawing.Font("Perpetua Titling MT", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.UpdateButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(211)))), ((int)(((byte)(144)))));
+            this.UpdateButton.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.UpdateButton.Location = new System.Drawing.Point(1659, 71);
+            this.UpdateButton.Name = "UpdateButton";
+            this.UpdateButton.Size = new System.Drawing.Size(265, 114);
+            this.UpdateButton.TabIndex = 15;
+            this.UpdateButton.Text = "update equipment record";
+            this.UpdateButton.UseVisualStyleBackColor = false;
+            this.UpdateButton.Click += new System.EventHandler(this.UpdateButton_Click);
+            this.UpdateButton.MouseEnter += new System.EventHandler(this.UpdateButton_MouseEnter);
+            this.UpdateButton.MouseLeave += new System.EventHandler(this.UpdateButton_MouseLeave);
+            // 
             // DeleteButton
             // 
             this.DeleteButton.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
@@ -133,7 +190,7 @@
             this.WeaponID});
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Perpetua Titling MT", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Perpetua Titling MT", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.GradientActiveCaption;
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
@@ -147,7 +204,15 @@
             this.WeaponGrid.TabIndex = 9;
             this.WeaponGrid.CellBeginEdit += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.WeaponGrid_CellBeginEdit);
             this.WeaponGrid.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.WeaponGrid_CellEndEdit);
+            this.WeaponGrid.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.WeaponGrid_DataError);
             this.WeaponGrid.UserDeletingRow += new System.Windows.Forms.DataGridViewRowCancelEventHandler(this.WeaponGrid_UserDeletingRow);
+            // 
+            // WeaponID
+            // 
+            this.WeaponID.DataPropertyName = "WeaponID";
+            this.WeaponID.HeaderText = "WeaponID";
+            this.WeaponID.Name = "WeaponID";
+            this.WeaponID.ReadOnly = true;
             // 
             // BackButton
             // 
@@ -204,7 +269,7 @@
             this.EquipID});
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Perpetua Titling MT", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Perpetua Titling MT", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
             dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.GradientActiveCaption;
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
@@ -218,71 +283,8 @@
             this.EqGrid.TabIndex = 0;
             this.EqGrid.CellBeginEdit += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.EqGrid_CellBeginEdit);
             this.EqGrid.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.EqGrid_CellEndEdit);
+            this.EqGrid.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.EqGrid_DataError);
             this.EqGrid.UserDeletingRow += new System.Windows.Forms.DataGridViewRowCancelEventHandler(this.EqGrid_UserDeletingRow);
-            // 
-            // UpdateButton
-            // 
-            this.UpdateButton.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.UpdateButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.UpdateButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Black;
-            this.UpdateButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.UpdateButton.Font = new System.Drawing.Font("Perpetua Titling MT", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.UpdateButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(211)))), ((int)(((byte)(144)))));
-            this.UpdateButton.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.UpdateButton.Location = new System.Drawing.Point(1659, 71);
-            this.UpdateButton.Name = "UpdateButton";
-            this.UpdateButton.Size = new System.Drawing.Size(265, 114);
-            this.UpdateButton.TabIndex = 15;
-            this.UpdateButton.Text = "update equipment record";
-            this.UpdateButton.UseVisualStyleBackColor = false;
-            this.UpdateButton.Click += new System.EventHandler(this.UpdateButton_Click);
-            this.UpdateButton.MouseEnter += new System.EventHandler(this.UpdateButton_MouseEnter);
-            this.UpdateButton.MouseLeave += new System.EventHandler(this.UpdateButton_MouseLeave);
-            // 
-            // UpdateWeapButton
-            // 
-            this.UpdateWeapButton.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.UpdateWeapButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.UpdateWeapButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Black;
-            this.UpdateWeapButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.UpdateWeapButton.Font = new System.Drawing.Font("Perpetua Titling MT", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.UpdateWeapButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(211)))), ((int)(((byte)(144)))));
-            this.UpdateWeapButton.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.UpdateWeapButton.Location = new System.Drawing.Point(1445, 643);
-            this.UpdateWeapButton.Name = "UpdateWeapButton";
-            this.UpdateWeapButton.Size = new System.Drawing.Size(439, 53);
-            this.UpdateWeapButton.TabIndex = 16;
-            this.UpdateWeapButton.Text = "update weapon record";
-            this.UpdateWeapButton.UseVisualStyleBackColor = false;
-            this.UpdateWeapButton.Click += new System.EventHandler(this.UpdateWeapButton_Click);
-            this.UpdateWeapButton.MouseEnter += new System.EventHandler(this.UpdateWeapButton_MouseEnter);
-            this.UpdateWeapButton.MouseLeave += new System.EventHandler(this.UpdateWeapButton_MouseLeave);
-            // 
-            // AddWeaponButton
-            // 
-            this.AddWeaponButton.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.AddWeaponButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.AddWeaponButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Black;
-            this.AddWeaponButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.AddWeaponButton.Font = new System.Drawing.Font("Perpetua Titling MT", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.AddWeaponButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(211)))), ((int)(((byte)(144)))));
-            this.AddWeaponButton.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.AddWeaponButton.Location = new System.Drawing.Point(1445, 884);
-            this.AddWeaponButton.Name = "AddWeaponButton";
-            this.AddWeaponButton.Size = new System.Drawing.Size(439, 53);
-            this.AddWeaponButton.TabIndex = 17;
-            this.AddWeaponButton.Text = "Add weapon record";
-            this.AddWeaponButton.UseVisualStyleBackColor = false;
-            this.AddWeaponButton.Click += new System.EventHandler(this.AddWeaponButton_Click);
-            this.AddWeaponButton.MouseEnter += new System.EventHandler(this.AddWeaponButton_MouseEnter);
-            this.AddWeaponButton.MouseLeave += new System.EventHandler(this.AddWeaponButton_MouseLeave);
-            // 
-            // WeaponID
-            // 
-            this.WeaponID.DataPropertyName = "WeaponID";
-            this.WeaponID.HeaderText = "WeaponID";
-            this.WeaponID.Name = "WeaponID";
-            this.WeaponID.ReadOnly = true;
             // 
             // EquipID
             // 

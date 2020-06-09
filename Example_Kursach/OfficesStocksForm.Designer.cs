@@ -28,26 +28,26 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.Gap = new System.Windows.Forms.Panel();
             this.TariffsLabel = new System.Windows.Forms.Label();
             this.NameLabel = new System.Windows.Forms.Label();
             this.LoginPanel = new System.Windows.Forms.Panel();
+            this.UpOButton = new System.Windows.Forms.Button();
+            this.addOButton = new System.Windows.Forms.Button();
+            this.StockGrid = new System.Windows.Forms.DataGridView();
+            this.StockID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DeleteButton = new System.Windows.Forms.Button();
             this.AddButton = new System.Windows.Forms.Button();
             this.UpdateButton = new System.Windows.Forms.Button();
             this.MainPageButton = new System.Windows.Forms.Button();
             this.Grid = new System.Windows.Forms.DataGridView();
-            this.StockGrid = new System.Windows.Forms.DataGridView();
             this.OfficeID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.addOButton = new System.Windows.Forms.Button();
-            this.UpOButton = new System.Windows.Forms.Button();
-            this.StockID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Gap.SuspendLayout();
             this.LoginPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.Grid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.StockGrid)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Grid)).BeginInit();
             this.SuspendLayout();
             // 
             // Gap
@@ -107,6 +107,75 @@
             this.LoginPanel.Name = "LoginPanel";
             this.LoginPanel.Size = new System.Drawing.Size(1679, 700);
             this.LoginPanel.TabIndex = 2;
+            // 
+            // UpOButton
+            // 
+            this.UpOButton.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.UpOButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.UpOButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Black;
+            this.UpOButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.UpOButton.Font = new System.Drawing.Font("Perpetua Titling MT", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.UpOButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(211)))), ((int)(((byte)(144)))));
+            this.UpOButton.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.UpOButton.Location = new System.Drawing.Point(1358, 158);
+            this.UpOButton.Name = "UpOButton";
+            this.UpOButton.Size = new System.Drawing.Size(276, 79);
+            this.UpOButton.TabIndex = 20;
+            this.UpOButton.Text = "update office record";
+            this.UpOButton.UseVisualStyleBackColor = false;
+            this.UpOButton.Click += new System.EventHandler(this.UpOButton_Click);
+            this.UpOButton.MouseEnter += new System.EventHandler(this.UpOButton_MouseEnter);
+            this.UpOButton.MouseLeave += new System.EventHandler(this.UpOButton_MouseLeave);
+            // 
+            // addOButton
+            // 
+            this.addOButton.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.addOButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.addOButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Black;
+            this.addOButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.addOButton.Font = new System.Drawing.Font("Perpetua Titling MT", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.addOButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(211)))), ((int)(((byte)(144)))));
+            this.addOButton.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.addOButton.Location = new System.Drawing.Point(1358, 43);
+            this.addOButton.Name = "addOButton";
+            this.addOButton.Size = new System.Drawing.Size(276, 82);
+            this.addOButton.TabIndex = 19;
+            this.addOButton.Text = "Add office record";
+            this.addOButton.UseVisualStyleBackColor = false;
+            this.addOButton.Click += new System.EventHandler(this.addOButton_Click);
+            this.addOButton.MouseEnter += new System.EventHandler(this.addOButton_MouseEnter);
+            this.addOButton.MouseLeave += new System.EventHandler(this.addOButton_MouseLeave);
+            // 
+            // StockGrid
+            // 
+            this.StockGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.StockGrid.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.StockGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.StockGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.StockID});
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Perpetua Titling MT", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.StockGrid.DefaultCellStyle = dataGridViewCellStyle1;
+            this.StockGrid.Location = new System.Drawing.Point(73, 346);
+            this.StockGrid.Name = "StockGrid";
+            this.StockGrid.RowHeadersWidth = 82;
+            this.StockGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.StockGrid.Size = new System.Drawing.Size(1250, 194);
+            this.StockGrid.TabIndex = 18;
+            this.StockGrid.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.StockGrid_DataError);
+            this.StockGrid.UserDeletingRow += new System.Windows.Forms.DataGridViewRowCancelEventHandler(this.StockGrid_UserDeletingRow);
+            // 
+            // StockID
+            // 
+            this.StockID.DataPropertyName = "StockID";
+            this.StockID.HeaderText = "StockID";
+            this.StockID.Name = "StockID";
+            this.StockID.ReadOnly = true;
             // 
             // DeleteButton
             // 
@@ -204,30 +273,8 @@
             this.Grid.TabIndex = 0;
             this.Grid.CellBeginEdit += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.Grid_CellBeginEdit);
             this.Grid.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.Grid_CellEndEdit);
+            this.Grid.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.Grid_DataError);
             this.Grid.UserDeletingRow += new System.Windows.Forms.DataGridViewRowCancelEventHandler(this.Grid_UserDeletingRow);
-            // 
-            // StockGrid
-            // 
-            this.StockGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.StockGrid.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            this.StockGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.StockGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.StockID});
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Perpetua Titling MT", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.StockGrid.DefaultCellStyle = dataGridViewCellStyle1;
-            this.StockGrid.Location = new System.Drawing.Point(73, 346);
-            this.StockGrid.Name = "StockGrid";
-            this.StockGrid.RowHeadersWidth = 82;
-            this.StockGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.StockGrid.Size = new System.Drawing.Size(1250, 194);
-            this.StockGrid.TabIndex = 18;
-            this.StockGrid.UserDeletingRow += new System.Windows.Forms.DataGridViewRowCancelEventHandler(this.StockGrid_UserDeletingRow);
             // 
             // OfficeID
             // 
@@ -235,51 +282,6 @@
             this.OfficeID.HeaderText = "OfficeID";
             this.OfficeID.Name = "OfficeID";
             this.OfficeID.ReadOnly = true;
-            // 
-            // addOButton
-            // 
-            this.addOButton.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.addOButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.addOButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Black;
-            this.addOButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.addOButton.Font = new System.Drawing.Font("Perpetua Titling MT", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.addOButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(211)))), ((int)(((byte)(144)))));
-            this.addOButton.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.addOButton.Location = new System.Drawing.Point(1358, 43);
-            this.addOButton.Name = "addOButton";
-            this.addOButton.Size = new System.Drawing.Size(276, 82);
-            this.addOButton.TabIndex = 19;
-            this.addOButton.Text = "Add office record";
-            this.addOButton.UseVisualStyleBackColor = false;
-            this.addOButton.Click += new System.EventHandler(this.addOButton_Click);
-            this.addOButton.MouseEnter += new System.EventHandler(this.addOButton_MouseEnter);
-            this.addOButton.MouseLeave += new System.EventHandler(this.addOButton_MouseLeave);
-            // 
-            // UpOButton
-            // 
-            this.UpOButton.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.UpOButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.UpOButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Black;
-            this.UpOButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.UpOButton.Font = new System.Drawing.Font("Perpetua Titling MT", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.UpOButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(211)))), ((int)(((byte)(144)))));
-            this.UpOButton.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.UpOButton.Location = new System.Drawing.Point(1358, 158);
-            this.UpOButton.Name = "UpOButton";
-            this.UpOButton.Size = new System.Drawing.Size(276, 79);
-            this.UpOButton.TabIndex = 20;
-            this.UpOButton.Text = "update office record";
-            this.UpOButton.UseVisualStyleBackColor = false;
-            this.UpOButton.Click += new System.EventHandler(this.UpOButton_Click);
-            this.UpOButton.MouseEnter += new System.EventHandler(this.UpOButton_MouseEnter);
-            this.UpOButton.MouseLeave += new System.EventHandler(this.UpOButton_MouseLeave);
-            // 
-            // StockID
-            // 
-            this.StockID.DataPropertyName = "StockID";
-            this.StockID.HeaderText = "StockID";
-            this.StockID.Name = "StockID";
-            this.StockID.ReadOnly = true;
             // 
             // OfficesStocksForm
             // 
@@ -294,8 +296,8 @@
             this.Gap.ResumeLayout(false);
             this.Gap.PerformLayout();
             this.LoginPanel.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.Grid)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.StockGrid)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Grid)).EndInit();
             this.ResumeLayout(false);
 
         }

@@ -32,12 +32,12 @@
             this.Gap = new System.Windows.Forms.Panel();
             this.NameLabel = new System.Windows.Forms.Label();
             this.LoginPanel = new System.Windows.Forms.Panel();
+            this.UpdateButton = new System.Windows.Forms.Button();
             this.TariffsLabel = new System.Windows.Forms.Label();
             this.BackButton = new System.Windows.Forms.Button();
             this.AddButton = new System.Windows.Forms.Button();
             this.StaffGrid = new System.Windows.Forms.DataGridView();
             this.DepID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.UpdateButton = new System.Windows.Forms.Button();
             this.Gap.SuspendLayout();
             this.LoginPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.StaffGrid)).BeginInit();
@@ -81,6 +81,25 @@
             this.LoginPanel.Name = "LoginPanel";
             this.LoginPanel.Size = new System.Drawing.Size(1632, 853);
             this.LoginPanel.TabIndex = 2;
+            // 
+            // UpdateButton
+            // 
+            this.UpdateButton.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.UpdateButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.UpdateButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Black;
+            this.UpdateButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.UpdateButton.Font = new System.Drawing.Font("Perpetua Titling MT", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.UpdateButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(211)))), ((int)(((byte)(144)))));
+            this.UpdateButton.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.UpdateButton.Location = new System.Drawing.Point(1297, 653);
+            this.UpdateButton.Name = "UpdateButton";
+            this.UpdateButton.Size = new System.Drawing.Size(305, 71);
+            this.UpdateButton.TabIndex = 16;
+            this.UpdateButton.Text = "update record";
+            this.UpdateButton.UseVisualStyleBackColor = false;
+            this.UpdateButton.Click += new System.EventHandler(this.UpdateButton_Click);
+            this.UpdateButton.MouseEnter += new System.EventHandler(this.UpdateButton_MouseEnter);
+            this.UpdateButton.MouseLeave += new System.EventHandler(this.UpdateButton_MouseLeave);
             // 
             // TariffsLabel
             // 
@@ -156,6 +175,7 @@
             this.StaffGrid.TabIndex = 0;
             this.StaffGrid.CellBeginEdit += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.StaffGrid_CellBeginEdit);
             this.StaffGrid.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.StaffGrid_CellEndEdit);
+            this.StaffGrid.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.StaffGrid_DataError);
             this.StaffGrid.UserDeletingRow += new System.Windows.Forms.DataGridViewRowCancelEventHandler(this.StaffGrid_UserDeletingRow);
             // 
             // DepID
@@ -164,25 +184,6 @@
             this.DepID.HeaderText = "DeaprtmentID";
             this.DepID.Name = "DepID";
             this.DepID.ReadOnly = true;
-            // 
-            // UpdateButton
-            // 
-            this.UpdateButton.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.UpdateButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.UpdateButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Black;
-            this.UpdateButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.UpdateButton.Font = new System.Drawing.Font("Perpetua Titling MT", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.UpdateButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(211)))), ((int)(((byte)(144)))));
-            this.UpdateButton.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.UpdateButton.Location = new System.Drawing.Point(1297, 653);
-            this.UpdateButton.Name = "UpdateButton";
-            this.UpdateButton.Size = new System.Drawing.Size(305, 71);
-            this.UpdateButton.TabIndex = 16;
-            this.UpdateButton.Text = "update record";
-            this.UpdateButton.UseVisualStyleBackColor = false;
-            this.UpdateButton.Click += new System.EventHandler(this.UpdateButton_Click);
-            this.UpdateButton.MouseEnter += new System.EventHandler(this.UpdateButton_MouseEnter);
-            this.UpdateButton.MouseLeave += new System.EventHandler(this.UpdateButton_MouseLeave);
             // 
             // DepForms
             // 

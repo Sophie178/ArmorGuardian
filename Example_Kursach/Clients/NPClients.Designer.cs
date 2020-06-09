@@ -90,7 +90,7 @@
             this.LoginPanel.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.LoginPanel.Font = new System.Drawing.Font("Perpetua Titling MT", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LoginPanel.Location = new System.Drawing.Point(0, 58);
-            this.LoginPanel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.LoginPanel.Margin = new System.Windows.Forms.Padding(2);
             this.LoginPanel.Name = "LoginPanel";
             this.LoginPanel.Size = new System.Drawing.Size(1510, 853);
             this.LoginPanel.TabIndex = 2;
@@ -162,7 +162,7 @@
             this.NPClientID});
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Perpetua Titling MT", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Perpetua Titling MT", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
@@ -176,6 +176,7 @@
             this.ClientsGrid.TabIndex = 0;
             this.ClientsGrid.CellBeginEdit += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.ClientsGrid_CellBeginEdit);
             this.ClientsGrid.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.ClientsGrid_CellEndEdit);
+            this.ClientsGrid.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.ClientsGrid_DataError);
             // 
             // NPClientID
             // 

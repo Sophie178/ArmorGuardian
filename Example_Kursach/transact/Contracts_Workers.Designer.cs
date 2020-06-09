@@ -205,6 +205,7 @@
             this.JPCGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.JPCGrid.Size = new System.Drawing.Size(1788, 439);
             this.JPCGrid.TabIndex = 10;
+            this.JPCGrid.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.JPCGrid_DataError);
             this.JPCGrid.UserDeletingRow += new System.Windows.Forms.DataGridViewRowCancelEventHandler(this.JPCGrid_UserDeletingRow);
             // 
             // JPContractID
@@ -285,6 +286,7 @@
             this.NPCGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.NPCGrid.Size = new System.Drawing.Size(1788, 483);
             this.NPCGrid.TabIndex = 0;
+            this.NPCGrid.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.NPCGrid_DataError);
             this.NPCGrid.UserDeletingRow += new System.Windows.Forms.DataGridViewRowCancelEventHandler(this.NPCGrid_UserDeletingRow);
             // 
             // NPContractID

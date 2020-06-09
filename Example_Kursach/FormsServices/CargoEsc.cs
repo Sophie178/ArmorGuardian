@@ -120,14 +120,6 @@ namespace Example_Kursach
                     try
                     {
                         sqlCommand.ExecuteNonQuery();
-                        SqlCommand cmd = new SqlCommand(query, connection);
-                        connection.Open();
-                        cmd.ExecuteNonQuery();
-                        DataTable tariffTable = new DataTable();
-                        SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(cmd);
-                        sqlDataAdapter.Fill(tariffTable);
-
-                        TariffGrid.DataSource = tariffTable;
                         connection.Close();
                     }
                     catch
@@ -257,14 +249,8 @@ namespace Example_Kursach
                 try
                 {
                     sqlCommand.ExecuteNonQuery();
-                    SqlCommand cmd = new SqlCommand(query, connection);
-                    cmd.ExecuteNonQuery();
-                    DataTable tariffTable = new DataTable();
-                    SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(cmd);
-                    sqlDataAdapter.Fill(tariffTable);
-
-                    TariffGrid.DataSource = tariffTable;
                     connection.Close();
+                    LoadTariff();
                 }
                 catch
                 {
@@ -295,14 +281,8 @@ namespace Example_Kursach
                 try
                 {
                     sqlCommand.ExecuteNonQuery();
-                    SqlCommand cmd = new SqlCommand(query, connection);
-                    cmd.ExecuteNonQuery();
-                    DataTable tariffTable = new DataTable();
-                    SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(cmd);
-                    sqlDataAdapter.Fill(tariffTable);
-
-                    TariffGrid.DataSource = tariffTable;
                     connection.Close();
+                    LoadTariff();
                 }
                 catch
                 {
@@ -322,9 +302,7 @@ namespace Example_Kursach
         {
             try
             {
-                if (ValidateCEService() != null && ValidateCEService().Description != "")
-                    Updating(table, ValidateCEService());
-                else { MessageBox.Show("Empty cells are not allowed"); }
+                Updating(table, ValidateCEService());
             }
             catch
             {
@@ -335,14 +313,18 @@ namespace Example_Kursach
         {
             try
             {
-                if (ValidateCEService() != null && ValidateCEService().Description != "")
-                    Adding(table, ValidateCEService());
-                else { MessageBox.Show("Empty cells are not allowed"); }
+                Adding(table, ValidateCEService());
             }
             catch
             {
                 MessageBox.Show("Invalid format");
             }
+        }
+
+        private void TariffGrid_DataError(object sender, DataGridViewDataErrorEventArgs e)
+        {
+            e.Cancel = true;
+            MessageBox.Show("Invalid format");
         }
     }
 }

@@ -228,6 +228,7 @@
             this.TariffGrid.TabIndex = 0;
             this.TariffGrid.CellBeginEdit += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.TariffGrid_CellBeginEdit);
             this.TariffGrid.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.TariffGrid_CellEndEdit);
+            this.TariffGrid.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.TariffGrid_DataError);
             this.TariffGrid.UserDeletingRow += new System.Windows.Forms.DataGridViewRowCancelEventHandler(this.TariffGrid_UserDeletingRow);
             // 
             // TariffID

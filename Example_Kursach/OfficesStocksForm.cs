@@ -417,5 +417,17 @@ namespace Example_Kursach
 
             }
         }
+
+        private void Grid_DataError(object sender, DataGridViewDataErrorEventArgs e)
+        {
+            e.Cancel = true;
+            MessageBox.Show("Invalid format");
+        }
+
+        private void StockGrid_DataError(object sender, DataGridViewDataErrorEventArgs e)
+        {
+            e.Cancel = true;
+            MessageBox.Show("Invalid format");
+        }
     }
 }

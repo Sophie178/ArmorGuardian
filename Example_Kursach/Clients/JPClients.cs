@@ -220,5 +220,11 @@ namespace Example_Kursach
             newStyle.Font = new Font("Times New Roman", 20, FontStyle.Regular);
             ClientsGrid.CurrentRow.DefaultCellStyle.Font = newStyle.Font;
         }
+
+        private void ClientsGrid_DataError(object sender, DataGridViewDataErrorEventArgs e)
+        {
+            e.Cancel = true;
+            MessageBox.Show("Invalid format");
+        }
     }
 }

@@ -175,7 +175,7 @@ namespace Example_Kursach
                 }
                 catch
                 {
-                    MessageBox.Show(" Error.");
+                    MessageBox.Show(" Error ");
                     connection.Close();
                 }
 
@@ -227,6 +227,12 @@ namespace Example_Kursach
             DataGridViewCellStyle newStyle = new DataGridViewCellStyle();
             newStyle.Font = new Font("Times New Roman", 20, FontStyle.Regular);
             ClientsGrid.CurrentRow.DefaultCellStyle.Font = newStyle.Font;
+        }
+
+        private void ClientsGrid_DataError(object sender, DataGridViewDataErrorEventArgs e)
+        {
+            e.Cancel = true;
+            MessageBox.Show("Invalid format");
         }
     }
 }

@@ -432,5 +432,17 @@ namespace Example_Kursach
                 MessageBox.Show("Invalid format");
             }
         }
+
+        private void EqGrid_DataError(object sender, DataGridViewDataErrorEventArgs e)
+        {
+            e.Cancel = true;
+            MessageBox.Show("Invalid format");
+        }
+
+        private void WeaponGrid_DataError(object sender, DataGridViewDataErrorEventArgs e)
+        {
+            e.Cancel = true;
+            MessageBox.Show("Invalid format");
+        }
     }
 }

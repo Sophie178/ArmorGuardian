@@ -217,5 +217,17 @@ namespace Example_Kursach
                 MessageBox.Show("Invalid format");
             }
         }
+
+        private void NPCGrid_DataError(object sender, DataGridViewDataErrorEventArgs e)
+        {
+            e.Cancel = true;
+            MessageBox.Show("Invalid format");
+        }
+
+        private void JPCGrid_DataError(object sender, DataGridViewDataErrorEventArgs e)
+        {
+            e.Cancel = true;
+            MessageBox.Show("Invalid format");
+        }
     }
 }

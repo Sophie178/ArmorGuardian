@@ -84,5 +84,11 @@ namespace Example_Kursach
         {
             InfoButton.ForeColor = Color.FromArgb(234, 211, 144);
         }
+
+        private void ContractGrid_DataError(object sender, DataGridViewDataErrorEventArgs e)
+        {
+            e.Cancel = true;
+            MessageBox.Show("Invalid format");
+        }
     }
 }

@@ -198,6 +198,7 @@
             this.TranGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.TranGrid.Size = new System.Drawing.Size(1511, 369);
             this.TranGrid.TabIndex = 10;
+            this.TranGrid.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.TranGrid_DataError);
             this.TranGrid.UserDeletingRow += new System.Windows.Forms.DataGridViewRowCancelEventHandler(this.TranGrid_UserDeletingRow);
             // 
             // ModelT
@@ -250,6 +251,7 @@
             this.WeaponGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.WeaponGrid.Size = new System.Drawing.Size(1511, 369);
             this.WeaponGrid.TabIndex = 9;
+            this.WeaponGrid.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.WeaponGrid_DataError);
             this.WeaponGrid.UserDeletingRow += new System.Windows.Forms.DataGridViewRowCancelEventHandler(this.WeaponGrid_UserDeletingRow);
             // 
             // ModelW
@@ -321,6 +323,7 @@
             this.EqGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.EqGrid.Size = new System.Drawing.Size(1511, 369);
             this.EqGrid.TabIndex = 0;
+            this.EqGrid.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.EqGrid_DataError);
             this.EqGrid.UserDeletingRow += new System.Windows.Forms.DataGridViewRowCancelEventHandler(this.EqGrid_UserDeletingRow);
             // 
             // Category

@@ -193,6 +193,7 @@
             this.StaffGrid.TabIndex = 0;
             this.StaffGrid.CellBeginEdit += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.StaffGrid_CellBeginEdit);
             this.StaffGrid.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.StaffGrid_CellEndEdit);
+            this.StaffGrid.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.StaffGrid_DataError);
             this.StaffGrid.UserDeletingRow += new System.Windows.Forms.DataGridViewRowCancelEventHandler(this.StaffGrid_UserDeletingRow);
             // 
             // EmployeeID

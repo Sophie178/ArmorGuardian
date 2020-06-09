@@ -285,5 +285,11 @@ namespace Example_Kursach
                 MessageBox.Show("Invalid format");
             }
         }
+
+        private void StaffGrid_DataError(object sender, DataGridViewDataErrorEventArgs e)
+        {
+            e.Cancel = true;
+            MessageBox.Show("Invalid format");
+        }
     }
 }

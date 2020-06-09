@@ -203,7 +203,7 @@ namespace Example_Kursach
                     }
                     catch
                     {
-                        MessageBox.Show(" Error.");
+                        MessageBox.Show(" Error ");
                         connection.Close();
                     }
 
@@ -259,6 +259,12 @@ namespace Example_Kursach
             string _uId = "UnitID";
 
             Adding(table, _tId, _sId, _uId);
+        }
+
+        private void TariffGrid_DataError(object sender, DataGridViewDataErrorEventArgs e)
+        {
+            e.Cancel = true;
+            MessageBox.Show("Invalid format");
         }
     }
 }

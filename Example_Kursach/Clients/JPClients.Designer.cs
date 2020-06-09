@@ -162,7 +162,7 @@
             this.JPClientID});
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Perpetua Titling MT", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Perpetua Titling MT", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.GradientActiveCaption;
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
@@ -176,6 +176,7 @@
             this.ClientsGrid.TabIndex = 0;
             this.ClientsGrid.CellBeginEdit += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.ClientsGrid_CellBeginEdit);
             this.ClientsGrid.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.ClientsGrid_CellEndEdit);
+            this.ClientsGrid.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.ClientsGrid_DataError);
             // 
             // JPClientID
             // 

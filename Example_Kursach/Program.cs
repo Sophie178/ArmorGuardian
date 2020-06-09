@@ -18,8 +18,6 @@ namespace Example_Kursach
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Authorization());
 
-
-
         }
     }
 }

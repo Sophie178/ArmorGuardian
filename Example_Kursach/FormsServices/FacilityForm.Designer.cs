@@ -224,7 +224,7 @@
             this.TariffID});
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Perpetua Titling MT", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Perpetua Titling MT", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.GradientActiveCaption;
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
@@ -238,6 +238,7 @@
             this.TariffGrid.TabIndex = 0;
             this.TariffGrid.CellBeginEdit += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.TariffGrid_CellBeginEdit);
             this.TariffGrid.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.TariffGrid_CellEndEdit);
+            this.TariffGrid.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.TariffGrid_DataError);
             this.TariffGrid.UserDeletingRow += new System.Windows.Forms.DataGridViewRowCancelEventHandler(this.TariffGrid_UserDeletingRow);
             // 
             // TariffID

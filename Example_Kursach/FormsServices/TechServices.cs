@@ -116,19 +116,11 @@ namespace Example_Kursach
                     try
                     {
                         sqlCommand.ExecuteNonQuery();
-                        SqlCommand cmd = new SqlCommand(query, connection);
-                        connection.Open();
-                        cmd.ExecuteNonQuery();
-                        DataTable tariffTable = new DataTable();
-                        SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(cmd);
-                        sqlDataAdapter.Fill(tariffTable);
-
-                        TariffGrid.DataSource = tariffTable;
                         connection.Close();
                     }
                     catch
                     {
-                        MessageBox.Show(" Error.");
+                        MessageBox.Show(" Error ");
                         e.Cancel = true;
                         connection.Close();
                     }
@@ -230,18 +222,12 @@ namespace Example_Kursach
                 try
                 {
                     sqlCommand.ExecuteNonQuery();
-                    SqlCommand cmd = new SqlCommand(query, connection);
-                    cmd.ExecuteNonQuery();
-                    DataTable tariffTable = new DataTable();
-                    SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(cmd);
-                    sqlDataAdapter.Fill(tariffTable);
-
-                    TariffGrid.DataSource = tariffTable;
                     connection.Close();
+                    LoadTariff();
                 }
                 catch
                 {
-                    MessageBox.Show(" Error.");
+                    MessageBox.Show(" Error ");
                     connection.Close();
                 }
 
@@ -267,18 +253,12 @@ namespace Example_Kursach
                 try
                 {
                     sqlCommand.ExecuteNonQuery();
-                    SqlCommand cmd = new SqlCommand(query, connection);
-                    cmd.ExecuteNonQuery();
-                    DataTable tariffTable = new DataTable();
-                    SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(cmd);
-                    sqlDataAdapter.Fill(tariffTable);
-
-                    TariffGrid.DataSource = tariffTable;
                     connection.Close();
+                    LoadTariff();
                 }
                 catch
                 {
-                    MessageBox.Show(" Error.");
+                    MessageBox.Show(" Error ");
                     connection.Close();
                 }
 
@@ -292,9 +272,8 @@ namespace Example_Kursach
         {
             try
             {
-                if (ValidateTSService() != null && ValidateTSService().Description != "")
-                    Updating(table, ValidateTSService());
-                else { MessageBox.Show("Invalid format"); }
+                
+                Updating(table, ValidateTSService());
             }
             catch
             {
@@ -305,9 +284,7 @@ namespace Example_Kursach
         {
             try
             {
-                if (ValidateTSService() != null && ValidateTSService().Description != "")
-                    Adding(table, ValidateTSService());
-                else { MessageBox.Show("Invalid format"); }
+                Adding(table, ValidateTSService());
             }
             catch
             {
@@ -315,5 +292,10 @@ namespace Example_Kursach
             }
         }
 
+        private void TariffGrid_DataError(object sender, DataGridViewDataErrorEventArgs e)
+        {
+            e.Cancel = true;
+            MessageBox.Show("Invalid format");
+        }
     }
 }

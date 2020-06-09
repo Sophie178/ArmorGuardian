@@ -28,15 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.Gap = new System.Windows.Forms.Panel();
             this.TariffsLabel = new System.Windows.Forms.Label();
             this.NameLabel = new System.Windows.Forms.Label();
             this.LoginPanel = new System.Windows.Forms.Panel();
+            this.InfoButton = new System.Windows.Forms.Button();
             this.BackButton = new System.Windows.Forms.Button();
             this.AddButton = new System.Windows.Forms.Button();
             this.ContractGrid = new System.Windows.Forms.DataGridView();
-            this.InfoButton = new System.Windows.Forms.Button();
             this.Gap.SuspendLayout();
             this.LoginPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ContractGrid)).BeginInit();
@@ -96,6 +96,26 @@
             this.LoginPanel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.LoginPanel_MouseDown);
             this.LoginPanel.MouseMove += new System.Windows.Forms.MouseEventHandler(this.LoginPanel_MouseMove);
             // 
+            // InfoButton
+            // 
+            this.InfoButton.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.InfoButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.InfoButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Black;
+            this.InfoButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.InfoButton.Font = new System.Drawing.Font("Perpetua Titling MT", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.InfoButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(211)))), ((int)(((byte)(144)))));
+            this.InfoButton.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.InfoButton.Location = new System.Drawing.Point(587, 756);
+            this.InfoButton.Name = "InfoButton";
+            this.InfoButton.Size = new System.Drawing.Size(491, 53);
+            this.InfoButton.TabIndex = 9;
+            this.InfoButton.Text = "get payment info";
+            this.InfoButton.UseMnemonic = false;
+            this.InfoButton.UseVisualStyleBackColor = false;
+            this.InfoButton.Click += new System.EventHandler(this.InfoButton_Click);
+            this.InfoButton.MouseEnter += new System.EventHandler(this.InfoButton_MouseEnter);
+            this.InfoButton.MouseLeave += new System.EventHandler(this.InfoButton_MouseLeave);
+            // 
             // BackButton
             // 
             this.BackButton.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
@@ -136,14 +156,14 @@
             this.ContractGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.ContractGrid.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.ContractGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Perpetua Titling MT", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.ContractGrid.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Perpetua Titling MT", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.ContractGrid.DefaultCellStyle = dataGridViewCellStyle1;
             this.ContractGrid.Location = new System.Drawing.Point(30, 97);
             this.ContractGrid.Name = "ContractGrid";
             this.ContractGrid.ReadOnly = true;
@@ -151,26 +171,7 @@
             this.ContractGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.ContractGrid.Size = new System.Drawing.Size(1572, 477);
             this.ContractGrid.TabIndex = 0;
-            // 
-            // InfoButton
-            // 
-            this.InfoButton.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.InfoButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.InfoButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Black;
-            this.InfoButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.InfoButton.Font = new System.Drawing.Font("Perpetua Titling MT", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.InfoButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(211)))), ((int)(((byte)(144)))));
-            this.InfoButton.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.InfoButton.Location = new System.Drawing.Point(587, 756);
-            this.InfoButton.Name = "InfoButton";
-            this.InfoButton.Size = new System.Drawing.Size(491, 53);
-            this.InfoButton.TabIndex = 9;
-            this.InfoButton.Text = "get payment info";
-            this.InfoButton.UseMnemonic = false;
-            this.InfoButton.UseVisualStyleBackColor = false;
-            this.InfoButton.Click += new System.EventHandler(this.InfoButton_Click);
-            this.InfoButton.MouseEnter += new System.EventHandler(this.InfoButton_MouseEnter);
-            this.InfoButton.MouseLeave += new System.EventHandler(this.InfoButton_MouseLeave);
+            this.ContractGrid.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.ContractGrid_DataError);
             // 
             // JPContracts
             // 
